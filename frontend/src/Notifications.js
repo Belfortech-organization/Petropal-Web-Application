@@ -487,11 +487,10 @@ const Notifications = () => {
               </div>
             </div>
             <a href="/profile" style={{ textDecoration: 'none' }}>
-  <div className="action-button view-profile-button">
-    <div className="button-text view-profile-button-text">View Profile</div>
-  </div>
-</a>
-
+              <div className="action-button view-profile-button">
+                <div className="button-text view-profile-button-text">View Profile</div>
+              </div>
+            </a>
           </div>
         </div>
       </div>

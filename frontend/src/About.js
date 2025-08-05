@@ -19,15 +19,19 @@ const styles = `
 
   /* Header Section */
   .nav-bar {
-    width: 100%;
-    height: 100px;
-    background-color: rgba(1,47,107,1);
-    padding: 20px 45px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100px;
+  background-color: rgba(1,47,107,1);
+  padding: 20px 45px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
   .top-nav {
     display: flex;
@@ -176,7 +180,7 @@ const styles = `
   .content-container {
     max-width: 1299px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 110px 20px;
   }
 
   .about-container {
