@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import './Profile.css';
+import styles from './Profile.module.css';
 
 const Profile = () => {
   const [activeSection, setActiveSection] = useState('about');
@@ -12,14 +12,12 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile-container">
-      
-
+    <div className={styles.profileContainer}>
       {/* Sidebar */}
-      <div className="sidebar">
-        <div className="sidebar-content">
+      <div className={styles.sidebar}>
+        <div className={styles.sidebarContent}>
           <img 
-            className="sb-top-icon" 
+            className={styles.sbTopIcon} 
             src="/images/back.png" 
             alt="Back"
             onClick={() => navigate(-1)}
@@ -27,69 +25,81 @@ const Profile = () => {
           />
           <Link to="/loggedin">
             <img
-              className="sb-logo" src="/images/profilelogo.png" alt="Logo"
+              className={styles.sbLogo} 
+              src="/images/profilelogo.png" 
+              alt="Logo"
             />
           </Link>
 
           {/* Added Profile item */}
-          <Link to="/user" className="sb-item">
-            <span className="sb-item-icon">
+          <Link to="/user" className={styles.sbItem}>
+            <span className={styles.sbItemIcon}>
               <img src="/images/userprofile.png" alt="Profile" />
             </span>
-            <span className="sb-item-text">Profile</span>
+            <span className={styles.sbItemText}>Profile</span>
           </Link>
           
-          <Link to="/general-info" className="sb-item">
-            <span className="sb-item-icon"><img src="/images/general.png" alt="General"/></span>
-            <span className="sb-item-text">General Info</span>
+          <Link to="/general-info" className={styles.sbItem}>
+            <span className={styles.sbItemIcon}>
+              <img src="/images/general.png" alt="General"/>
+            </span>
+            <span className={styles.sbItemText}>General Info</span>
           </Link>
-          <Link to="/settings" className="sb-item">
-            <span className="sb-item-icon"><img src="/images/settings.png" alt="Settings"/></span>
-            <span className="sb-item-text">Settings</span>
+          <Link to="/settings" className={styles.sbItem}>
+            <span className={styles.sbItemIcon}>
+              <img src="/images/settings.png" alt="Settings"/>
+            </span>
+            <span className={styles.sbItemText}>Settings</span>
           </Link>
-          <Link to="/notifications" className="sb-item">
-            <span className="sb-item-icon">
+          <Link to="/notifications" className={styles.sbItem}>
+            <span className={styles.sbItemIcon}>
               <img src="/images/notificationn.png" alt="Notifications" />
             </span>
-            <span className="sb-item-text">Notification</span>
-            <span className="sb-item-right">
+            <span className={styles.sbItemText}>Notification</span>
+            <span className={styles.sbItemRight}>
               <img src="/images/toggle.png" alt="Toggle" />
             </span>
           </Link>
-          <Link to="/support" className="sb-item">
-            <span className="sb-item-icon"><img src="/images/support.png" alt="Support"/></span>
-            <span className="sb-item-text">Support & Help</span>
+          <Link to="/support" className={styles.sbItem}>
+            <span className={styles.sbItemIcon}>
+              <img src="/images/support.png" alt="Support"/>
+            </span>
+            <span className={styles.sbItemText}>Support & Help</span>
           </Link>
-          <Link to="/legal" className="sb-item">
-            <span className="sb-item-icon"><img src="/images/legal.png" alt="Legal"/></span>
-            <span className="sb-item-text">Legal & Account</span>
+          <Link to="/legal" className={styles.sbItem}>
+            <span className={styles.sbItemIcon}>
+              <img src="/images/legal.png" alt="Legal"/>
+            </span>
+            <span className={styles.sbItemText}>Legal & Account</span>
           </Link>
-          <Link to="" className="sb-item">
-            <span className="sb-item-icon"><img src="/images/aboutt.png" alt="About"/></span>
-            <span className="sb-item-text">About App</span>
+          <Link to="" className={styles.sbItem}>
+            <span className={styles.sbItemIcon}>
+              <img src="/images/aboutt.png" alt="About"/>
+            </span>
+            <span className={styles.sbItemText}>About App</span>
           </Link>
-          <div className="logout-btn">
-            <div className="logout-btn-inner">
-              <div className="logout-text">Log Out</div>
+          <div className={styles.logoutBtn}>
+            <div className={styles.logoutBtnInner}>
+              <div className={styles.logoutText}>Log Out</div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main content */}
-      <div className="main-content">
-        <div className="hero">
-          <img className="hero-main" src="/images/post.png" alt="Hero Image"/>
-          <img className="hero-left" src="/images/seller2.png" alt="Left Icon"/>
-          <img className="hero-right" src="/images/sharee.png" alt="Right Icon"/>
+      <div className={styles.mainContent}>
+        <div className={styles.hero}>
+          <img className={styles.heroMain} src="/images/post.png" alt="Hero Image"/>
+          <img className={styles.heroLeft} src="/images/seller2.png" alt="Left Icon"/>
+          <img className={styles.heroRight} src="/images/sharee.png" alt="Right Icon"/>
         </div>
 
         {/* Updated block */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', gap: '300px', width: '800px', height: '131px', margin: '20px auto 0' }}>
           <div style={{ marginTop: '9px', display: 'flex', flexDirection: 'column', justifyContent: 'start', alignItems: 'center', width: '218px', height: '122px' }}>
-            <div className="name-line">
-              <div className="company-name">SolarWave LLC</div>
-              <div className="verified">
+            <div className={styles.nameLine}>
+              <div className={styles.companyName}>SolarWave LLC</div>
+              <div className={styles.verified}>
                 <img src="/images/verified1.png" alt="Verified Badge"/>
               </div>
             </div>
@@ -111,56 +121,61 @@ const Profile = () => {
             </div>
           </div>
           {/* Orange button updated */}
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', gap: '26px', width: '325px', height: '94px' }}>
-            <div style={{ width: '325px', height: '49px', borderRadius: '10px', backgroundColor: 'rgba(255,140,0,1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingRight: '81px', paddingLeft: '84px', gap: '34px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '32px' }}>
-                <img width="30.5px" height="30px" src="/images/connect.png" alt="Svg Asset 1" />
-              </div>
-              <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '23px', minWidth: '94px', whiteSpace: 'nowrap', color: 'rgba(255,255,255,1)', lineHeight: '18.5px', letterSpacing: '-0.01em', fontWeight: 600 }}>
-                Connect
-              </div>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', gap: '16px', width: '325px', height: '120px' }}>
+            <div style={{ width: '100%', height: '49px', borderRadius: '10px', backgroundColor: 'rgba(255,140,0,1)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 20px', gap: '12px' }}>
+              <img src="/images/connect.png" alt="Connect Icon" style={{ width: '30px', height: '30px' }} />
+              <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '20px', color: 'white', fontWeight: 600, lineHeight: '1', whiteSpace: 'nowrap' }}>
+                Connect</span>
             </div>
-            <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '20px', whiteSpace: 'nowrap', color: 'rgba(25,25,25,1)', lineHeight: '18.5px', letterSpacing: '-0.01em', fontWeight: 600 }}>
-              5.2K Followers
-            </div>
+            <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '18px', color: 'rgba(25,25,25,1)', fontWeight: 600, whiteSpace: 'nowrap' }}>
+              5.2K Followers</div>
           </div>
         </div>
 
         {/* Start Chat Button */}
-        <div className="start-chat-btn">
+        <div className={styles.startChatBtn}>
           <img src="/images/startchat.png" alt="Chat Icon" />
           <div>Start Chat</div>
         </div>
 
         {/* Navigation Tabs */}
-        <div className="nav-tabs-container">
-          <div className="nav-tabs">
-            <div className={`nav-tab ${activeSection === 'about' ? 'active' : ''}`} onClick={() => showSection('about')}>
+        <div className={styles.navTabsContainer}>
+          <div className={styles.navTabs}>
+            <div 
+              className={`${styles.navTab} ${activeSection === 'about' ? styles.navTabActive : ''}`} 
+              onClick={() => showSection('about')}
+            >
               About
-              <div className="nav-tab-indicator"></div>
+              <div className={styles.navTabIndicator}></div>
             </div>
-            <div className={`nav-tab ${activeSection === 'posts' ? 'active' : ''}`} onClick={() => showSection('posts')}>
+            <div 
+              className={`${styles.navTab} ${activeSection === 'posts' ? styles.navTabActive : ''}`} 
+              onClick={() => showSection('posts')}
+            >
               Posts
-              <div className="nav-tab-indicator"></div>
+              <div className={styles.navTabIndicator}></div>
             </div>
-            <div className={`nav-tab ${activeSection === 'reviews' ? 'active' : ''}`} onClick={() => showSection('reviews')}>
+            <div 
+              className={`${styles.navTab} ${activeSection === 'reviews' ? styles.navTabActive : ''}`} 
+              onClick={() => showSection('reviews')}
+            >
               Reviews
-              <div className="nav-tab-indicator"></div>
+              <div className={styles.navTabIndicator}></div>
             </div>
           </div>
-          <div className="nav-tabs-line"></div>
+          <div className={styles.navTabsLine}></div>
         </div>
 
         {/* Content Sections */}
-        <div id="about" className={`content-section ${activeSection === 'about' ? 'active' : ''}`}>
-          <div className="about-content">
-            <div className="about-title">About</div>
-            <div className="about-description">
+        <div id="about" className={`${styles.contentSection} ${activeSection === 'about' ? styles.contentSectionActive : ''}`}>
+          <div className={styles.aboutContent}>
+            <div className={styles.aboutTitle}>About</div>
+            <div className={styles.aboutDescription}>
               SolarWave is a Verified energy supplier based in Nairobi.<br />
               We provide clean diesel, LPG and solar solutions with reliable delivery and transparent pricing
             </div>
-            <div className="services-title">Services Provided</div>
-            <ul className="services-list">
+            <div className={styles.servicesTitle}>Services Provided</div>
+            <ul className={styles.servicesList}>
               <li>Diesel & LPG Distribution</li>
               <li>Commercial Solar System Installations</li>
               <li>On-time Delivery Across Kenya</li>
@@ -169,208 +184,208 @@ const Profile = () => {
           </div>
 
           {/* Recent Posts Section */}
-          <div className="posts-header">
-            <div className="posts-title">Recent Posts</div>
-            <a href="#" className="see-all-link">
-              <span className="see-all-text">See All</span>
+          <div className={styles.postsHeader}>
+            <div className={styles.postsTitle}>Recent Posts</div>
+            <a href="#" className={styles.seeAllLink}>
+              <span className={styles.seeAllText}>See All</span>
               <img width="18px" height="23px" src="/images/arrow.png" alt="Arrow" />
             </a>
           </div>
 
-          <div className="posts-grid">
+          <div className={styles.postsGrid}>
             {/* Product 1 */}
-            <div className="post-card">
-              <img className="post-image" src="/images/product1.png" alt="Diesel" />
-              <div className="post-title">Diesel (5000L Min.)</div>
-              <div className="post-company" style={{ marginTop: '11px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: '4px', width: '247px', height: '19px' }}>
+            <div className={styles.postCard}>
+              <img className={styles.postImage} src="/images/product1.png" alt="Diesel" />
+              <div className={styles.postTitle}>Diesel (5000L Min.)</div>
+              <div className={styles.postCompany} style={{ marginTop: '11px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: '4px', width: '247px', height: '19px' }}>
                 <a href="#" style={{ textDecoration: 'none' }}>
-                  <div className="post-company-name">Aidmax Energy</div>
+                  <div className={styles.postCompanyName}>Aidmax Energy</div>
                 </a>
-                <div className="verified-badge" style={{ borderRadius: '9.5px', width: '19px', height: '19px', backgroundColor: 'rgba(1,47,107,1)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}> 
+                <div className={styles.verifiedBadge} style={{ borderRadius: '9.5px', width: '19px', height: '19px', backgroundColor: 'rgba(1,47,107,1)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}> 
                   <img src="/images/verified.png" width="13" height="13" alt="Verified" />
                 </div>
               </div>
-              <div className="location-info">
+              <div className={styles.locationInfo}>
                 <img width="14" height="16" src="/images/location_.png" alt="Location" />
                 <div>Nairobi, Kenya</div>
               </div>
-              <div className="price-info">KES 183/litre</div>
-              <div className="time-info">
+              <div className={styles.priceInfo}>KES 183/litre</div>
+              <div className={styles.timeInfo}>
                 <img width="17" height="17" src="/images/clock.png" alt="Clock" />
                 <div>Posted 15 min ago</div>
               </div>
-              <div className="post-actions">
+              <div className={styles.postActions}>
                 <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
                 <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
                 <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-                <div className="start-chat-btn-small">
-                  <div className="start-chat-text">Start Chat</div>
+                <div className={styles.startChatBtnSmall}>
+                  <div className={styles.startChatText}>Start Chat</div>
                 </div>
               </div>
             </div>
 
             {/* Product 2 */}
-            <div className="post-card">
-              <img className="post-image" src="/images/product2.png" alt="Gas-oil" />
-              <div className="post-title">Gas-oil (10,000L Min.)</div>
-              <div className="post-company" style={{ marginTop: '11px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: '4px', width: '247px', height: '19px' }}>
-                <div className="post-company-name">Hass Petroleum</div>
-                <div className="verified-badge" style={{ borderRadius: '9.5px', width: '19px', height: '19px', backgroundColor: 'rgba(1,47,107,1)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div className={styles.postCard}>
+              <img className={styles.postImage} src="/images/product2.png" alt="Gas-oil" />
+              <div className={styles.postTitle}>Gas-oil (10,000L Min.)</div>
+              <div className={styles.postCompany} style={{ marginTop: '11px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: '4px', width: '247px', height: '19px' }}>
+                <div className={styles.postCompanyName}>Hass Petroleum</div>
+                <div className={styles.verifiedBadge} style={{ borderRadius: '9.5px', width: '19px', height: '19px', backgroundColor: 'rgba(1,47,107,1)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                   <img src="/images/verified.png" width="13" height="13" alt="Verified" />
                 </div>
               </div>
-              <div className="location-info">
+              <div className={styles.locationInfo}>
                 <img width="14" height="16" src="/images/location_.png" alt="Location" />
                 <div>Kisumu</div>
               </div>
-              <div className="price-info">KES 183/litre</div>
-              <div className="time-info">
+              <div className={styles.priceInfo}>KES 183/litre</div>
+              <div className={styles.timeInfo}>
                 <img width="17" height="17" src="/images/clock.png" alt="Clock" />
                 <div>Posted 1h ago</div>
               </div>
-              <div className="post-actions">
+              <div className={styles.postActions}>
                 <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
                 <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
                 <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-                <div className="start-chat-btn-small">
-                  <div className="start-chat-text">Start Chat</div>
+                <div className={styles.startChatBtnSmall}>
+                  <div className={styles.startChatText}>Start Chat</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="posts" className={`content-section ${activeSection === 'posts' ? 'active' : ''}`}>
-          <div className="posts-grid">
+        <div id="posts" className={`${styles.contentSection} ${activeSection === 'posts' ? styles.contentSectionActive : ''}`}>
+          <div className={styles.postsGrid}>
             {/* Post 1 - Description before image */}
-            <div className="post-card">
-              <div className="post-header">
-                <img className="profile-image" src="/images/seller2.png" alt="Profile Image" />
-                <div className="profile-info">
-                  <div className="profile-name">
+            <div className={styles.postCard}>
+              <div className={styles.postHeader}>
+                <img className={styles.profileImage} src="/images/seller2.png" alt="Profile Image" />
+                <div className={styles.profileInfo}>
+                  <div className={styles.profileName}>
                     SolarWave LLC
                     <img src="/images/verified1.png" width="25" height="27" alt="Verified" />
                   </div>
-                  <div className="rating-container">
+                  <div className={styles.ratingContainer}>
                     <img width="18.1px" height="19px" src="/images/review.png" alt="Rating" />
-                    <div className="rating-text">4.8</div>
+                    <div className={styles.ratingText}>4.8</div>
                   </div>
                 </div>
               </div>
-              <div className="post-description" style={{ margin: '10px 0', width: '100%' }}>
+              <div className={styles.postDescription} style={{ margin: '10px 0', width: '100%' }}>
                 Diesel price update: Be the first to get the new KES 183/litre rate on all bulk orders
               </div>
-              <img className="post-image" src="/images/product1.png" alt="Post Image" />
-              <div className="location-info" style={{ marginTop: '10px' }}>
+              <img className={styles.postImage} src="/images/product1.png" alt="Post Image" />
+              <div className={styles.locationInfo} style={{ marginTop: '10px' }}>
                 <img width="14" height="16" src="/images/location_.png" alt="Location" />
                 <div>Nairobi, Kenya</div>
               </div>
-              <div className="time-info" style={{ marginTop: '10px' }}>
+              <div className={styles.timeInfo} style={{ marginTop: '10px' }}>
                 <img width="17" height="17" src="/images/clock.png" alt="Clock" />
-                <div className="time-text">Posted 15 min ago</div>
+                <div className={styles.timeText}>Posted 15 min ago</div>
               </div>
-              <div className="post-actions" style={{ marginTop: '15px' }}>
+              <div className={styles.postActions} style={{ marginTop: '15px' }}>
                 <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
                 <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Comment" />
                 <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Share" />
-                <div className="start-chat-btn-small" style={{ marginLeft: 'auto' }}>
-                  <div className="start-chat-text">Start Chat</div>
+                <div className={styles.startChatBtnSmall} style={{ marginLeft: 'auto' }}>
+                  <div className={styles.startChatText}>Start Chat</div>
                 </div>
               </div>
             </div>
 
             {/* Post 2 - Description before image */}
-            <div className="post-card">
-              <div className="post-header">
-                <img className="profile-image" src="/images/seller1.png" alt="Profile Image" />
-                <div className="profile-info">
-                  <div className="profile-name">
+            <div className={styles.postCard}>
+              <div className={styles.postHeader}>
+                <img className={styles.profileImage} src="/images/seller1.png" alt="Profile Image" />
+                <div className={styles.profileInfo}>
+                  <div className={styles.profileName}>
                     Hass Petroleum
                     <img src="/images/verified1.png" width="25" height="27" alt="Verified" />
                   </div>
-                  <div className="rating-container">
+                  <div className={styles.ratingContainer}>
                     <img width="18.1px" height="19px" src="/images/review.png" alt="Rating" />
-                    <div className="rating-text">4.6</div>
+                    <div className={styles.ratingText}>4.6</div>
                   </div>
                 </div>
               </div>
-              <div className="post-description" style={{ margin: '10px 0', width: '100%' }}>
+              <div className={styles.postDescription} style={{ margin: '10px 0', width: '100%' }}>
                 Gas-oil special offer: 10,000L minimum order at KES 183/litre
               </div>
-              <img className="post-image" src="/images/product2.png" alt="Post Image" />
-              <div className="location-info" style={{ marginTop: '10px' }}>
+              <img className={styles.postImage} src="/images/product2.png" alt="Post Image" />
+              <div className={styles.locationInfo} style={{ marginTop: '10px' }}>
                 <img width="14" height="16" src="/images/location_.png" alt="Location" />
                 <div>Kisumu</div>
               </div>
-              <div className="time-info" style={{ marginTop: '10px' }}>
+              <div className={styles.timeInfo} style={{ marginTop: '10px' }}>
                 <img width="17" height="17" src="/images/clock.png" alt="Clock" />
-                <div className="time-text">Posted 1h ago</div>
+                <div className={styles.timeText}>Posted 1h ago</div>
               </div>
-              <div className="post-actions" style={{ marginTop: '15px' }}>
+              <div className={styles.postActions} style={{ marginTop: '15px' }}>
                 <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
                 <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Comment" />
                 <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Share" />
-                <div className="start-chat-btn-small" style={{ marginLeft: 'auto' }}>
-                  <div className="start-chat-text">Start Chat</div>
+                <div className={styles.startChatBtnSmall} style={{ marginLeft: 'auto' }}>
+                  <div className={styles.startChatText}>Start Chat</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="reviews" className={`content-section ${activeSection === 'reviews' ? 'active' : ''}`}>
-          <div className="ratings-container">
-            <div className="rating-summary">
-              <div className="rating-title">Ratings and Review</div>
-              <div className="rating-value">4.8</div>
-              <div className="stars-container">
-                <img className="star" src="/images/review.png" alt="Star" />
-                <img className="star" src="/images/review.png" alt="Star" />
-                <img className="star" src="/images/review.png" alt="Star" />
-                <img className="star" src="/images/review.png" alt="Star" />
-                <img className="star" src="/images/review.png" alt="Star" />
+        <div id="reviews" className={`${styles.contentSection} ${activeSection === 'reviews' ? styles.contentSectionActive : ''}`}>
+          <div className={styles.ratingsContainer}>
+            <div className={styles.ratingSummary}>
+              <div className={styles.ratingTitle}>Ratings and Review</div>
+              <div className={styles.ratingValue}>4.8</div>
+              <div className={styles.starsContainer}>
+                <img className={styles.star} src="/images/review.png" alt="Star" />
+                <img className={styles.star} src="/images/review.png" alt="Star" />
+                <img className={styles.star} src="/images/review.png" alt="Star" />
+                <img className={styles.star} src="/images/review.png" alt="Star" />
+                <img className={styles.star} src="/images/review.png" alt="Star" />
               </div>
-              <div className="reviews-count">26 Reviews</div>
+              <div className={styles.reviewsCount}>26 Reviews</div>
             </div>
             
-            <div className="ratings-distribution">
+            <div className={styles.ratingsDistribution}>
               {/* Rating 5 */}
-              <div className="rating-row">
-                <div className="rating-number">5</div>
-                <div className="rating-bar-container">
-                  <div className="rating-bar bar-5"></div>
+              <div className={styles.ratingRow}>
+                <div className={styles.ratingNumber}>5</div>
+                <div className={styles.ratingBarContainer}>
+                  <div className={`${styles.ratingBar} ${styles.bar5}`}></div>
                 </div>
               </div>
               
               {/* Rating 4 */}
-              <div className="rating-row">
-                <div className="rating-number">4</div>
-                <div className="rating-bar-container">
-                  <div className="rating-bar bar-4"></div>
+              <div className={styles.ratingRow}>
+                <div className={styles.ratingNumber}>4</div>
+                <div className={styles.ratingBarContainer}>
+                  <div className={`${styles.ratingBar} ${styles.bar4}`}></div>
                 </div>
               </div>
               
               {/* Rating 3 */}
-              <div className="rating-row">
-                <div className="rating-number">3</div>
-                <div className="rating-bar-container">
-                  <div className="rating-bar bar-3"></div>
+              <div className={styles.ratingRow}>
+                <div className={styles.ratingNumber}>3</div>
+                <div className={styles.ratingBarContainer}>
+                  <div className={`${styles.ratingBar} ${styles.bar3}`}></div>
                 </div>
               </div>
               
               {/* Rating 2 */}
-              <div className="rating-row">
-                <div className="rating-number">2</div>
-                <div className="rating-bar-container">
-                  <div className="rating-bar bar-2"></div>
+              <div className={styles.ratingRow}>
+                <div className={styles.ratingNumber}>2</div>
+                <div className={styles.ratingBarContainer}>
+                  <div className={`${styles.ratingBar} ${styles.bar2}`}></div>
                 </div>
               </div>
               
               {/* Rating 1 */}
-              <div className="rating-row">
-                <div className="rating-number">1</div>
-                <div className="rating-bar-container">
-                  <div className="rating-bar bar-1"></div>
+              <div className={styles.ratingRow}>
+                <div className={styles.ratingNumber}>1</div>
+                <div className={styles.ratingBarContainer}>
+                  <div className={`${styles.ratingBar} ${styles.bar1}`}></div>
                 </div>
               </div>
             </div>
