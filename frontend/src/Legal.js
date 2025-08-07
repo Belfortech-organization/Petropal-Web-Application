@@ -297,7 +297,7 @@ const Legal = () => {
                 <span>Privacy Policy</span>
               </div>
               <div className="legal-item-right">
-                <img src="/images/arrow-right.png" alt="Arrow"/>
+                <img src="/images/arrowright.png" alt="Arrow"/>
               </div>
             </div>
             <div className="divider"></div>
@@ -308,7 +308,7 @@ const Legal = () => {
                 <span>Terms of Use</span>
               </div>
               <div className="legal-item-right">
-                <img src="/images/arrow-right.png" alt="Arrow"/>
+                <img src="/images/arrowright.png" alt="Arrow"/>
               </div>
             </div>
             <div className="divider"></div>
@@ -319,7 +319,7 @@ const Legal = () => {
                 <span>Delete My Account</span>
               </div>
               <div className="legal-item-right">
-                <img src="/images/arrow-right.png" alt="Arrow"/>
+                <img src="/images/arrowright.png" alt="Arrow"/>
               </div>
             </div>
           </div>

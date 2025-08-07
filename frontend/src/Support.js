@@ -297,7 +297,7 @@ const Support = () => {
                 <span>Help Center / FAQs</span>
               </div>
               <div className="support-item-right">
-                <img src="/images/arrow-right.png" alt="Arrow"/>
+                <img src="/images/arrowright.png" alt="Arrow"/>
               </div>
             </div>
             <div className="divider"></div>
@@ -308,7 +308,7 @@ const Support = () => {
                 <span>Contact Support</span>
               </div>
               <div className="support-item-right">
-                <img src="/images/arrow-right.png" alt="Arrow"/>
+                <img src="/images/arrowright.png" alt="Arrow"/>
               </div>
             </div>
             <div className="divider"></div>
@@ -319,7 +319,7 @@ const Support = () => {
                 <span>Report a Problem</span>
               </div>
               <div className="support-item-right">
-                <img src="/images/arrow-right.png" alt="Arrow"/>
+                <img src="/images/arrowright.png" alt="Arrow"/>
               </div>
             </div>
           </div>
