@@ -17,146 +17,99 @@ import AdCreationModal from './AdCreationModal';
 import AdUploadModal from './AdUploadModal';
 import AdDetailsModal from './AdDetailsModal';
 
-interface HeaderSlide {
-  id: number;
-  img: string;
-  caption: string;
-}
-
-interface PostData {
-  title: string;
-  description: string;
-  price?: string;
-  location?: string;
-  category?: string;
-  tags?: string[];
-  contactInfo?: {
-    email: string;
-    phone: string;
-  };
-}
-
-interface AdData {
-  title: string;
-  description: string;
-  budget: number;
-  duration: number;
-  targetAudience: string[];
-  contactInfo: {
-    email: string;
-    phone: string;
-  };
-}
-
-const Loggedin: React.FC = () => {
+const Loggedin = () => {
   // State for header slider
-  const [headerCurrentIndex, setHeaderCurrentIndex] = useState<number>(0);
+  const [headerCurrentIndex, setHeaderCurrentIndex] = useState(0);
   // State for modals
-  const [showDownloadModal, setShowDownloadModal] = useState<boolean>(false);
-  const [showContactModal, setShowContactModal] = useState<boolean>(false);
+  const [showDownloadModal, setShowDownloadModal] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
   // State for profile dropdown
-  const [showProfileDropdown, setShowProfileDropdown] = useState<boolean>(false);
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
 
-  const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
-  const [sliderInterval, setSliderInterval] = useState<NodeJS.Timeout>();
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [sliderInterval, setSliderInterval] = useState<ReturnType<typeof setInterval> | null>(null);
 
   // Modal states
-  const [showAddModal, setShowAddModal] = useState<boolean>(false);
-  const [showPostCreationModal, setShowPostCreationModal] = useState<boolean>(false);
-  const [showPostUploadModal, setShowPostUploadModal] = useState<boolean>(false);
-  const [showPostDetailsModal, setShowPostDetailsModal] = useState<boolean>(false);
-  const [showDiscardModal, setShowDiscardModal] = useState<boolean>(false);
-  const [showAdCreationModal, setShowAdCreationModal] = useState<boolean>(false);
-  const [showAdUploadModal, setShowAdUploadModal] = useState<boolean>(false);
-  const [showAdDetailsModal, setShowAdDetailsModal] = useState<boolean>(false);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showPostCreationModal, setShowPostCreationModal] = useState(false);
+  const [showPostUploadModal, setShowPostUploadModal] = useState(false);
+  const [showPostDetailsModal, setShowPostDetailsModal] = useState(false);
+  const [showDiscardModal, setShowDiscardModal] = useState(false);
+  const [showAdCreationModal, setShowAdCreationModal] = useState(false);
+  const [showAdUploadModal, setShowAdUploadModal] = useState(false);
+  const [showAdDetailsModal, setShowAdDetailsModal] = useState(false);
   
   // Data states
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [adImage, setAdImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | undefined>(undefined);
+  const [adImage, setAdImage] = useState<string | undefined>(undefined);
 
   // Handle opening the add modal
-  const handleAddClick = (): void => {
+  const handleAddClick = () => {
     setShowAddModal(true);
   };
 
   // Post flow handlers
-  const handleSelectPost = (): void => {
+  const handleSelectPost = () => {
     setShowAddModal(false);
     setShowPostCreationModal(true);
   };
 
-  const handleFileSelect = (fileDataUrl: string | ArrayBuffer | null): void => {
-    if (typeof fileDataUrl === 'string') {
-      setSelectedImage(fileDataUrl);
-      setShowPostCreationModal(false);
-      setShowPostUploadModal(true);
-    }
+  const handleFileSelect = (imageData: any) => {
+    setSelectedImage(imageData);
+    setShowPostCreationModal(false);
+    setShowPostUploadModal(true);
   };
 
-  const handlePostUploadNext = (): void => {
+  const handlePostUploadNext = () => {
     setShowPostUploadModal(false);
     setShowPostDetailsModal(true);
   };
 
-  const handlePostDetailsBack = (): void => {
+  const handlePostDetailsBack = () => {
     setShowPostDetailsModal(false);
     setShowPostUploadModal(true);
   };
 
-  const handlePost = (data: { image: string | null; caption: string; title: string; location: string; price: string }): void => {
-    console.log('Posting:', data);
+  const handlePost = (postData: any) => {
+    console.log('Posting:', postData);
     setShowPostDetailsModal(false);
     alert('Post created successfully!');
   };
 
   // Ad flow handlers
-  const handleSelectAd = (): void => {
+  const handleSelectAd = () => {
     setShowAddModal(false);
     setShowAdCreationModal(true);
   };
 
-  const handleUploadMedia = (): void => {
+  const handleUploadMedia = () => {
     setShowAdCreationModal(false);
     setShowAdUploadModal(true);
   };
 
-  const handleBoostContent = (): void => {
+  const handleBoostContent = () => {
     setShowAdCreationModal(false);
     alert('Boost content functionality would be implemented here');
   };
 
-  const handleAdUploadNext = (image: string | ArrayBuffer | null): void => {
-    if (typeof image === 'string') {
-      setAdImage(image);
-      setShowAdUploadModal(false);
-      setShowAdDetailsModal(true);
-    }
+  const handleAdUploadNext = (imageData: any) => {
+    setAdImage(imageData);
+    setShowAdUploadModal(false);
+    setShowAdDetailsModal(true);
   };
 
-  const handleAdSubmit = (data: { image: string; title: string; description: string; audience: string; budget: string }): void => {
-    // Transform the data to AdData type as needed
-    const adData: AdData = {
-      title: data.title,
-      description: data.description,
-      budget: Number(data.budget),
-      duration: 0, // Set a default or get from elsewhere if needed
-      targetAudience: [data.audience], // Convert to array if needed
-      contactInfo: {
-        email: '', // Set default or get from elsewhere
-        phone: '', // Set default or get from elsewhere
-      },
-    };
+  const handleAdSubmit = (adData: any) => {
     console.log('Submitting ad:', adData);
     setShowAdDetailsModal(false);
     alert('Ad created successfully!');
   };
 
   // Discard handlers
-  const handleRequestClose = (): void => {
+  const handleRequestClose = () => {
     setShowDiscardModal(true);
   };
 
-  const handleDiscard = (): void => {
+  const handleDiscard = () => {
     setShowDiscardModal(false);
     setShowPostCreationModal(false);
     setShowPostUploadModal(false);
@@ -164,20 +117,20 @@ const Loggedin: React.FC = () => {
     setShowAdCreationModal(false);
     setShowAdUploadModal(false);
     setShowAdDetailsModal(false);
-    setSelectedImage(null);
-    setAdImage(null);
+    setSelectedImage(undefined);
+    setAdImage(undefined);
   };
 
-  const handleCancelDiscard = (): void => {
+  const handleCancelDiscard = () => {
     setShowDiscardModal(false);
   };
 
   // Close handlers for each modal
-  const handleCloseAddModal = (): void => {
+  const handleCloseAddModal = () => {
     setShowAddModal(false);
   };
 
-  const handleClosePostCreationModal = (): void => {
+  const handleClosePostCreationModal = () => {
     if (selectedImage) {
       handleRequestClose();
     } else {
@@ -185,77 +138,79 @@ const Loggedin: React.FC = () => {
     }
   };
 
-  const handleClosePostUploadModal = (): void => {
+  const handleClosePostUploadModal = () => {
     handleRequestClose();
   };
 
-  const handleClosePostDetailsModal = (): void => {
+  const handleClosePostDetailsModal = () => {
     handleRequestClose();
   };
 
-  const handleCloseAdCreationModal = (): void => {
+  const handleCloseAdCreationModal = () => {
     handleRequestClose();
   };
 
-  const handleCloseAdUploadModal = (): void => {
+  const handleCloseAdUploadModal = () => {
     setShowAdUploadModal(false);
     setShowAdCreationModal(true);
   };
 
-  const handleCloseAdDetailsModal = (): void => {
+  const handleCloseAdDetailsModal = () => {
     setShowAdDetailsModal(false);
     setShowAdUploadModal(true);
   };
 
   // Back navigation handlers for ad flow
-  const handleAdUploadBack = (): void => {
+  const handleAdUploadBack = () => {
     setShowAdUploadModal(false);
     setShowAdCreationModal(true);
   };
 
-  const handleAdDetailsBack = (): void => {
+  const handleAdDetailsBack = () => {
     setShowAdDetailsModal(false);
     setShowAdUploadModal(true);
   };
 
   useEffect(() => {
     // Start the slider interval when component mounts
-    const interval: NodeJS.Timeout = setInterval(() => {
+    const interval = setInterval(() => {
       setCurrentSlideIndex(prev => (prev + 1) % 3); // Assuming 3 slides
     }, 4000);
     setSliderInterval(interval);
 
     // Clear interval on component unmount
     return () => {
-      if (sliderInterval) if (sliderInterval) clearInterval(sliderInterval);
+      if (sliderInterval) clearInterval(sliderInterval);
     };
   }, []);
 
   // Pause on hover
-  const handleSliderMouseEnter = (): void => {
-    if (sliderInterval) if (sliderInterval) clearInterval(sliderInterval);
+  const handleSliderMouseEnter = () => {
+    if (sliderInterval) clearInterval(sliderInterval);
   };
 
-  const handleSliderMouseLeave = (): void => {
-    const interval: NodeJS.Timeout = setInterval(() => {
+  const handleSliderMouseLeave = () => {
+    const interval = setInterval(() => {
       setCurrentSlideIndex(prev => (prev + 1) % 3);
     }, 4000);
     setSliderInterval(interval);
   };
 
-  const [currentAdIndex, setCurrentAdIndex] = useState<number>(0);
-  const [adSliderInterval, setAdSliderInterval] = useState<NodeJS.Timeout>();
+  const [currentAdIndex, setCurrentAdIndex] = useState(0);
+  const [adSliderInterval, setAdSliderInterval] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const interval: NodeJS.Timeout = setInterval(() => {
+    const interval = setInterval(() => {
       setCurrentAdIndex((prev) => (prev + 1) % 4);
     }, 4000);
+
+    setAdSliderInterval(interval);
 
     return () => clearInterval(interval); // Cleanup on unmount
   }, []);
 
   // Header slides data
-  const headerSlides: HeaderSlide[][] = [
+  const headerSlides = [
     [
       { id: 1, img: "/images/headerimage1.png", caption: "Automotive Fuels" },
       { id: 2, img: "/images/headerimage2.png", caption: "Industrial Fuels" },
@@ -278,7 +233,7 @@ const Loggedin: React.FC = () => {
 
   // Auto-rotate header slides
   useEffect(() => {
-    const interval: NodeJS.Timeout = setInterval(() => {
+    const interval = setInterval(() => {
       setHeaderCurrentIndex(prev => (prev + 1) % headerSlides.length);
     }, 4000);
     return () => clearInterval(interval);
@@ -286,7 +241,7 @@ const Loggedin: React.FC = () => {
 
   // Close modals when clicking outside
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent): void => {
+    const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (showDownloadModal && target.id === 'downloadModalOverlay') {
         setShowDownloadModal(false);
@@ -304,7 +259,7 @@ const Loggedin: React.FC = () => {
 
   // Close modals with Escape key
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent): void => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setShowDownloadModal(false);
         setShowContactModal(false);
@@ -976,15 +931,15 @@ const Loggedin: React.FC = () => {
       </div>
 
       {/* Ad Banner Section */}
-      <div className={styles.adBanner}>
-        {/* Ad Slides Container */}
         <div
           style={{
             position: 'relative',
             width: '100%',
             height: '100%',
           }}
-          onMouseEnter={() => clearInterval(adSliderInterval)}
+          onMouseEnter={() => {
+            if (adSliderInterval) clearInterval(adSliderInterval);
+          }}
           onMouseLeave={() => {
             const interval = setInterval(() => {
               setCurrentAdIndex(prev => (prev + 1) % 4);
@@ -992,8 +947,8 @@ const Loggedin: React.FC = () => {
             setAdSliderInterval(interval);
           }}
         >
-          {/* Ad Label */}
-          <div className={styles.adLabel}>
+        {/* Ad Label */}
+        <div className={styles.adLabel}>
             <div>ad</div>
             <img width="19px" height="16px" src="/images/X.png" alt="Close" />
           </div>
@@ -1023,7 +978,6 @@ const Loggedin: React.FC = () => {
             className={`${styles.adSlide} ${currentAdIndex === 3 ? 'active' : ''}`}
           />
         </div>
-      </div>
 
       {/* Industry Updates Section */}
       <div className={styles.industryUpdates}>
@@ -1213,7 +1167,7 @@ const Loggedin: React.FC = () => {
 
       {showPostUploadModal && (
         <PostUploadModal 
-          image={selectedImage ?? undefined}
+          image={selectedImage}
           onClose={handleClosePostUploadModal}
           onNext={handlePostUploadNext}
           onBack={() => {
@@ -1257,11 +1211,11 @@ const Loggedin: React.FC = () => {
 
       {showAdDetailsModal && (
         <AdDetailsModal 
-  image={adImage ?? ""}
-  onClose={handleCloseAdDetailsModal}
-  onSubmit={handleAdSubmit}
-  onBack={handleAdDetailsBack}
-/>
+          image={adImage ?? ""}
+          onClose={handleCloseAdDetailsModal}
+          onSubmit={handleAdSubmit}
+          onBack={handleAdDetailsBack}
+        />
       )}
 
       {/* Render modals conditionally */}
