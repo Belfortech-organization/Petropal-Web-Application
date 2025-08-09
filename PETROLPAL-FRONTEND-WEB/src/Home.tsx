@@ -39,6 +39,16 @@ const Home = () => {
     setSliderInterval(interval);
   };
 
+  const handleDotClick = (index: number) => {
+  setCurrentSlideIndex(index);
+  // Reset the interval when user manually changes slide
+  if (sliderInterval) clearInterval(sliderInterval);
+  const interval = setInterval(() => {
+    setCurrentSlideIndex(prev => (prev + 1) % 3);
+  }, 4000);
+  setSliderInterval(interval);
+};
+
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
   const [adSliderInterval, setAdSliderInterval] = useState<ReturnType<typeof setInterval> | null>(null);
 
@@ -140,73 +150,78 @@ const Home = () => {
         <div className="header">
           <div className="nav-bar">
             {/* Top Navigation Row */}
-            <div style={{display: 'flex', justifyContent: 'start', alignItems: 'center', width: '97%'}}>
-              {/* Logo */}
-              <img style={{width: '151.8px', height: '44px'}} src="/images/logo_.png" alt="Petropal Logo" />
-              {/* Category Dropdown */}
-              <div style={{marginLeft: '37.2px', display: 'flex', alignItems: 'center'}}>
-                <div style={{fontFamily: '"Inter", sans-serif', fontSize: '13px', textAlign: 'center', width: '76px', color: 'white', lineHeight: '17px', letterSpacing: '-0.01em', fontWeight: 600}}>
-                  Search by Category
-                </div>
-                <img style={{marginLeft: '1.8px'}} width="13px" height="15px" src="/images/dropp.png" alt="Dropdown" />
-              </div>
-              {/* Search Bar */}
-              <div style={{marginLeft: '35.8px', display: 'flex', alignItems: 'center', background: 'white', borderRadius: '20px', border: '3px solid rgb(255,140,0)', boxShadow: '0px 4px 4px 0px rgba(0,0,0,0.25)', height: '47px', width: '593px', position: 'relative'}}>
-                {/* Search Section */}
-                <div style={{display: 'flex', alignItems: 'center', flexGrow: 1}}>
-                  <img style={{marginLeft: '16px'}} width="14.6px" height="14.6px" src="/images/search.png" alt="Search" />
-                  <div style={{marginLeft: '18.4px', fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'rgba(1,47,107,0.5)', fontWeight: 600, whiteSpace: 'nowrap'}}>
-                    Products &amp; Services
-                  </div>
-                </div>
-                {/* Divider positioned at start of blue search rectangle */}
-                <img style={{position: 'absolute', top: '50%', transform: 'translateY(-50%)', left: '300px', height: '50px', width: '3px'}} src="/images/Line.png" alt="Divider" />
-                {/* Location and Search Button */}
-                <div style={{display: 'flex', alignItems: 'center'}}>
-                  <img width="23px" height="23px" src="/images/location.png" alt="Location" />
-                  <div style={{marginLeft: '15px', fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'rgba(1,47,107,0.5)', fontWeight: 600}}>
-                    Location
-                  </div>
-                  <div style={{marginLeft: '30px', backgroundColor: 'rgba(1,47,107,1)', height: '49px', width: '150px', borderRadius: '0 17px 17px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative'}}>
-                    <img style={{position: 'absolute', top: '50%', transform: 'translateY(-50%)', right: '150px', height: '50px', width: '3px'}} src="/images/Line.png" alt="Divider" />
-                    <div style={{fontFamily: '"Inter", sans-serif', fontSize: '20px', color: 'white', fontWeight: 600}}>
-                      Search
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Language and Auth Buttons */}
-              <div style={{marginLeft: '30px', display: 'flex', alignItems: 'center'}}>
-                {/* Language Selector */}
-                <div style={{display: 'flex', alignItems: 'center'}}>
-                  <div style={{marginLeft: '12px', fontFamily: '"Lato", sans-serif', fontSize: '18px', color: 'white', fontWeight: 500}}>
-                    English
-                  </div>
-                  <img style={{marginLeft: '12px'}} width="11px" height="7px" src="/images/drop.png" alt="Dropdown" />
-                </div>
-                {/* Auth Buttons */}
-                <div style={{ marginLeft: '36px', display: 'flex', gap: '20px' }}>
-                  <Link to="/signin" style={{ textDecoration: 'none' }}>
-                    <div 
-                      style={{ border: '2px solid white', borderRadius: '16px', width: '105px', height: '34px', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', transition: 'all 0.3s ease' }}
-                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)'; e.currentTarget.style.transform = 'scale(1.05)'; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.transform = 'scale(1)'; }}
-                    >
-                      <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '17px', color: 'white', fontWeight: 600 }}>Log In</div>
-                    </div>
-                  </Link>
-                  <Link to="/signup" style={{ textDecoration: 'none' }}>
-                    <div 
-                      style={{ backgroundColor: 'rgba(255,255,255,0.48)', borderRadius: '16px', width: '105px', height: '34px', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', transition: 'all 0.3s ease' }}
-                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.7)'; e.currentTarget.style.transform = 'scale(1.05)'; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.48)'; e.currentTarget.style.transform = 'scale(1)'; }}
-                    >
-                      <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '17px', color: 'white', fontWeight: 600 }}>Sign Up</div>
-                    </div>
-                  </Link>
-                </div>
-              </div>
-            </div>
+<div className="nav-links" style={{ width: '100%' }}>
+  {/* Logo */}
+  <Link to="">
+    <img className="logo" src="/images/logo_.png" alt="Petropal Logo" />
+  </Link>
+
+  {/* Category Dropdown */}
+  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginLeft: '20px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.1' }}>
+      <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'white', fontWeight: 600 }}>
+        Search by
+      </span>
+      <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'white', fontWeight: 600 }}>
+        Category
+      </span>
+    </div>
+    <img width="13" height="15" src="/images/dropp.png" alt="Dropdown" />
+  </div>
+
+  {/* Search Bar */}
+  <div className="searchContainer">
+    {/* Search Section */}
+    <div className="searchSection">
+      <img style={{ marginLeft: '16px' }} width="14.6px" height="14.6px" src="/images/search.png" alt="Search" />
+      <div style={{ marginLeft: '18.4px', fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'rgba(1,47,107,0.5)', fontWeight: 600, whiteSpace: 'nowrap' }}>
+        Products &amp; Services
+      </div>
+    </div>
+
+    {/* Divider */}
+    <img className="searchDivider" src="/images/Line.png" alt="Divider" />
+
+    {/* Location and Search Button */}
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <img width="23px" height="23px" src="/images/location.png" alt="Location" />
+      <div style={{ marginLeft: '15px', fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'rgba(1,47,107,0.5)', fontWeight: 600 }}>
+        Location
+      </div>
+      <div className="searchButton">
+        <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '20px', color: 'white', fontWeight: 600 }}>
+          Search
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Language and Auth Section */}
+  <div style={{ marginRight: '30px', display: 'flex', alignItems: 'center' }}>
+    {/* Language Selector */}
+    <div style={{ display: 'flex', alignItems: 'center', marginRight: '30px' }}>
+      <div style={{ marginRight: '10px', marginLeft: '10px', fontFamily: '"Lato", sans-serif', fontSize: '18px', color: 'white', fontWeight: 500 }}>
+        English
+      </div>
+      <img width="11px" height="7px" src="/images/drop.png" alt="Dropdown" />
+    </div>
+
+    {/* Auth Buttons */}
+    <div style={{ display: 'flex', gap: '20px' }}>
+      <Link to="/signin" style={{ textDecoration: 'none' }}>
+        <div className="auth-button">
+          <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '17px', color: 'white', fontWeight: 600 }}>Log In</div>
+        </div>
+      </Link>
+      <Link to="/signup" style={{ textDecoration: 'none' }}>
+        <div className="auth-button-filled">
+          <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '17px', color: 'white', fontWeight: 600 }}>Sign Up</div>
+        </div>
+      </Link>
+    </div>
+  </div>
+</div>
+
             {/* Header Content Section */}
             <div style={{marginTop: '20px', display: 'flex', flexDirection: 'column', width: '100%'}}>
               {/* Text and Images Row */}
@@ -266,7 +281,7 @@ const Home = () => {
         </div>
 
         {/* Featured Sellers Content - Updated Version */}
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'start', alignItems: 'start', height: '492px', width: '1308px', marginTop: '50px'}}>
+        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'start', alignItems: 'start', height: '492px', width: '1308px', marginTop: '60px'}}>
           {/* Featured Sellers header with See All link */}
           <div style={{marginLeft: '9px', display: 'flex', justifyContent: 'start', alignItems: 'center', height: '48px', width: '100%'}}>
             <div style={{fontFamily: '"Inter", sans-serif', fontSize: '30px', minWidth: '236px', whiteSpace: 'nowrap', color: 'rgba(0,0,0,1)', lineHeight: '48px', fontWeight: 600}}>
@@ -309,145 +324,55 @@ const Home = () => {
             <img style={{width: '100px', height: '100px'}} src="/images/seller7.png" alt="Seller" />
             <img style={{width: '100px', height: '100px'}} src="/images/seller7.png" alt="Seller" />
           </div>
-          {/* Slider Section */}
-          <div style={{ position: 'relative', width: '1308px', height: '228px', marginTop: '72px', borderRadius: '10px', overflow: 'hidden' }}>
-            {/* Slider container */}
-            <div 
-              id="imageSlider" 
-              style={{ position: 'relative', width: '100%', height: '100%' }}
-              onMouseEnter={() => {
-                if (sliderInterval) clearInterval(sliderInterval);
-              }}
-              onMouseLeave={() => {
-                const interval = setInterval(() => {
-                  setCurrentSlideIndex(prev => (prev + 1) % 3);
-                }, 4000);
-                setSliderInterval(interval);
-              }}
-            >
-              <img 
-                src="/images/slider1.png" 
-                alt="Slider 1" 
-                style={{
-                  position: 'absolute',
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  opacity: currentSlideIndex === 0 ? 1 : 0,
-                  transition: 'opacity 1s ease-in-out'
-                }}
-              />
-              <img 
-                src="/images/slider2.png" 
-                alt="Slider 2" 
-                style={{
-                  position: 'absolute',
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  opacity: currentSlideIndex === 1 ? 1 : 0,
-                  transition: 'opacity 1s ease-in-out'
-                }}
-              />
-              <img 
-                src="/images/slider3.png" 
-                alt="Slider 3" 
-                style={{
-                  position: 'absolute',
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  opacity: currentSlideIndex === 2 ? 1 : 0,
-                  transition: 'opacity 1s ease-in-out'
-                }}
-              />
-            </div>
-            
-            {/* Content overlay on the left */}
-            <div style={{
-              position: 'absolute',
-              top: '-40px',
-              left: 0,
-              zIndex: 50,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              padding: '40px',
-              width: '400px',
-              height: '100%',
-              background: 'linear-gradient(to right, rgba(0,0,0,0.7), transparent)'
-            }}>
-              <div style={{ fontSize: '50px', color: 'white', fontWeight: 600 }}>40%</div>
-              <div style={{ marginTop: '10px', fontSize: '24px', color: 'white', fontWeight: 600 }}>Today's special</div>
-              <div style={{ marginTop: '10px', fontSize: '20px', color: 'white', fontWeight: 500 }}>Hurry! Grab Your Discounted Fuel Now!</div>
-            </div>
-            
-            {/* Navigation dots */}
-            <div style={{
-              position: 'absolute',
-              bottom: '20px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              display: 'flex',
-              gap: '10px',
-              zIndex: 60
-            }}>
-              <span 
-                style={{
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  backgroundColor: currentSlideIndex === 0 ? 'white' : 'rgba(255,255,255,0.5)',
-                  cursor: 'pointer',
-                  transition: 'background-color 0.3s'
-                }}
-                onClick={() => {
-                  setCurrentSlideIndex(0);
-                  if (sliderInterval) clearInterval(sliderInterval as NodeJS.Timeout);
-                  const interval = setInterval(() => {
-                    setCurrentSlideIndex(prev => (prev + 1) % 3);
-                  }, 4000);
-                  setSliderInterval(interval);
-                }}
-              ></span>
-              <span 
-                style={{
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  backgroundColor: currentSlideIndex === 1 ? 'white' : 'rgba(255,255,255,0.5)',
-                  cursor: 'pointer',
-                  transition: 'background-color 0.3s'
-                }}
-                onClick={() => {
-                  setCurrentSlideIndex(1);
-                  if (sliderInterval) clearInterval(sliderInterval as NodeJS.Timeout);
-                  const interval = setInterval(() => {
-                    setCurrentSlideIndex(prev => (prev + 1) % 3);
-                  }, 4000);
-                  setSliderInterval(interval);
-                }}
-              ></span>
-              <span 
-                style={{
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  backgroundColor: currentSlideIndex === 2 ? 'white' : 'rgba(255,255,255,0.5)',
-                  cursor: 'pointer',
-                  transition: 'background-color 0.3s'
-                }}
-                onClick={() => {
-                  setCurrentSlideIndex(2);
-                  if (sliderInterval) clearInterval(sliderInterval as NodeJS.Timeout);
-                  const interval = setInterval(() => {
-                    setCurrentSlideIndex(prev => (prev + 1) % 3);
-                  }, 4000);
-                  setSliderInterval(interval);
-                }}
-              ></span>
-            </div>
-          </div>
+{/* Slider Section */}
+<div className="sliderSection">
+  {/* Slider container */}
+  <div
+    id="imageSlider"
+    className="sliderContainer"
+    onMouseEnter={handleSliderMouseEnter}
+    onMouseLeave={handleSliderMouseLeave}
+  >
+    <img
+      src="/images/slider1.png"
+      alt="Slider 1"
+      className={`sliderImage ${currentSlideIndex === 0 ? 'active' : ''}`}
+    />
+    <img
+      src="/images/slider2.png"
+      alt="Slider 2"
+      className={`sliderImage ${currentSlideIndex === 1 ? 'active' : ''}`}
+    />
+    <img
+      src="/images/slider3.png"
+      alt="Slider 3"
+      className={`sliderImage ${currentSlideIndex === 2 ? 'active' : ''}`}
+    />
+
+    {/* Content overlay on the left */}
+    <div className="sliderContentOverlay">
+      <div style={{ fontSize: '50px', color: 'white', fontWeight: 600 }}>40%</div>
+      <div style={{ marginTop: '10px', fontSize: '24px', color: 'white', fontWeight: 600 }}>Today's special</div>
+      <div style={{ marginTop: '10px', fontSize: '20px', color: 'white', fontWeight: 500 }}>Hurry! Grab Your Discounted Fuel Now!</div>
+    </div>
+
+    {/* Navigation dots */}
+    <div className="sliderDots">
+      <span
+        className={`dot ${currentSlideIndex === 0 ? 'active' : ''}`}
+        onClick={() => handleDotClick(0)}
+      ></span>
+      <span
+        className={`dot ${currentSlideIndex === 1 ? 'active' : ''}`}
+        onClick={() => handleDotClick(1)}
+      ></span>
+      <span
+        className={`dot ${currentSlideIndex === 2 ? 'active' : ''}`}
+        onClick={() => handleDotClick(2)}
+      ></span>
+    </div>
+  </div>
+</div>
         </div>
 
         {/* Latest Listings Section - 4 Column Grid (12 Products) */}
@@ -484,7 +409,7 @@ const Home = () => {
             </Link>
           </div>
           {/* 4-Column Product Grid */}
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 310px)', gap: '30px'}}>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 310px)', gap: '20px'}}>
             {/* Row 1 */}
             {/* Product 1 */}
             <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'start', alignItems: 'start', height: '492px'}}>
@@ -1315,77 +1240,58 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Footer Section - Last Section */}
-        <div style={{width: '1445px', height: '154px', backgroundColor: 'rgba(1,47,107,1)', marginTop: '101px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', padding: '39px 0 38px 0', gap: '72px'}}>
-          {/* Top Footer Content */}
-          <div style={{display: 'flex', justifyContent: 'start', alignItems: 'center', width: '1292px'}}>
-            {/* Logo */}
-            <img style={{width: '193.2px', height: '56px'}} src="/images/logo_.png" alt="Petropal Logo" />
-            {/* Navigation Links */}
-            <button 
-            onClick={() => setShowDownloadModal(true)}
-            style={{
-              marginLeft: '179.8px', 
-              fontFamily: '"Inter", sans-serif', 
-              fontSize: '18px', 
-              minWidth: '153px', 
-              whiteSpace: 'nowrap', 
-              color: 'white', 
-              lineHeight: '26px', 
-              fontWeight: 700, 
-              textDecoration: 'none',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer'
-            }}
-          >
-            Download App
-          </button>
-            <a href="#" style={{marginLeft: '23px', fontFamily: '"Inter", sans-serif', fontSize: '18px', minWidth: '96px', whiteSpace: 'nowrap', color: 'white', lineHeight: '26px', fontWeight: 700, textDecoration: 'none'}}>About Us</a>
-            <button 
-            onClick={() => setShowContactModal(true)}
-            style={{
-              marginLeft: '23px', 
-              fontFamily: '"Inter", sans-serif', 
-              fontSize: '18px', 
-              minWidth: '96px', 
-              whiteSpace: 'nowrap', 
-              color: 'white', 
-              lineHeight: '26px', 
-              fontWeight: 700, 
-              textDecoration: 'none',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer'
-            }}
-          >
-            Contact Us
-          </button>
-            <a href="#" style={{marginLeft: '23px', fontFamily: '"Inter", sans-serif', fontSize: '18px', minWidth: '136px', whiteSpace: 'nowrap', color: 'white', lineHeight: '40px', fontWeight: 700, textDecoration: 'none'}}>Help Center</a>
-            {/* Social Icons */}
-            <div style={{marginLeft: '193px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '32px', height: '32px'}}>
-              <img width="26px" height="25.9px" src="/images/facebook.png" alt="Facebook" />
-            </div>
-            <div style={{marginLeft: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '32px'}}>
-              <img width="27px" height="27px" src="/images/Twitter.png" alt="Twitter" />
-            </div>
-            <div style={{marginLeft: '15px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '32px'}}>
-              <img width="28px" height="25px" src="/images/Linkedin.png" alt="LinkedIn" />
-            </div>
-            <div style={{marginLeft: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '32px', height: '32px'}}>
-              <img width="26px" height="26px" src="/images/Instagram.png" alt="Instagram" />
-            </div>
-          </div>
-          {/* Footer Bottom */}
-          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '100px', width: '770px', height: '26px'}}>
-            <div style={{fontFamily: '"Inter", sans-serif', fontSize: '21px', minWidth: '367px', whiteSpace: 'nowrap', color: 'white', lineHeight: '26px', fontWeight: 500}}>
-              © 2025 Petropal. All rights reserved.
-            </div>
-            <div style={{fontFamily: '"Inter", sans-serif', fontSize: '18px', minWidth: '303px', whiteSpace: 'nowrap', color: 'white', lineHeight: '16px', fontWeight: 500}}>
-              Privacy Policy Term of Service
-            </div>
-          </div>
-        </div>
+        {/* Footer Section */}
+<div className="footer">
+  {/* Top Footer Content */}
+  <div className="footerContent">
+    {/* Logo */}
+    <Link to="">
+      <img className="logo" src="/images/logo_.png" alt="Petropal Logo" />
+    </Link>
+
+    {/* Navigation Links */}
+    <div className="footerNav">
+      <button
+        onClick={() => setShowDownloadModal(true)}
+        className="footerLinks"
+      >
+        Download App
+      </button>
+
+      <Link
+        to="/about"
+        onClick={() => window.scrollTo(0, 0)}
+        className="footerLinks"
+      >
+        About Us
+      </Link>
+
+      <button
+        onClick={() => setShowContactModal(true)}
+        className="footerLinks"
+      >
+        Contact Us
+      </button>
+
+      <a href="#" className="footerLinks">Help Center</a>
+    </div>
+
+    {/* Social Icons */}
+    <div className="socialIcons">
+      <img width="26px" height="25.9px" src="/images/facebook.png" alt="Facebook" />
+      <img width="27px" height="27px" src="/images/Twitter.png" alt="Twitter" />
+      <img width="28px" height="25px" src="/images/Linkedin.png" alt="LinkedIn" />
+      <img width="26px" height="26px" src="/images/Instagram.png" alt="Instagram" />
+    </div>
+  </div>
+
+  {/* Footer Bottom */}
+  <div className="footerBottom">
+    <div className="copyright">© 2025 Petropal. All rights reserved.</div>
+    <div className="footerLinks">Privacy Policy Term of Service</div>
+  </div>
+</div>
+
       </div>
       {/* Render modals conditionally */}
       {showDownloadModal && <DownloadModal onClose={() => setShowDownloadModal(false)} />}
