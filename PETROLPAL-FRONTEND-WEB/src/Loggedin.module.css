@@ -4,7 +4,7 @@
     padding: 0;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
-    background-color: rgba(244,244,244,1);
+    background-color: rgba(244, 244, 244, 1);
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -23,11 +23,11 @@
 
 .searchBar {
     border-radius: 10px;
-    border: 3px solid rgb(255,140,0);
+    border: 3px solid rgb(255, 140, 0);
     width: 1048px;
     height: 90px;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-    background-color: rgba(255,255,255,1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: rgba(255, 255, 255, 1);
     position: absolute;
     top: 225px;
     left: 197px;
@@ -41,7 +41,7 @@
 .navBar {
     width: 1400px;
     height: 350px;
-    background-color: rgba(1,47,107,1);
+    background-color: rgba(1, 47, 107, 1);
     position: absolute;
     z-index: 10;
     display: flex;
@@ -60,17 +60,18 @@
 }
 
 .navLinks {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* space between left & right sides */
-  width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* space between left & right sides */
+    width: 100%;
 }
 
 
 .navLink {
     font-family: 'Inter', sans-serif;
     font-size: 18px;
-    color: rgba(255,255,255,1);
+    color: rgba(255, 255, 255, 1);
     font-weight: 700;
     text-decoration: none;
     justify-content: space-between;
@@ -84,7 +85,7 @@
 .sectionTitle {
     font-family: 'Inter', sans-serif;
     font-size: 30px;
-    color: rgba(0,0,0,1);
+    color: rgba(0, 0, 0, 1);
     font-weight: 600;
     margin-top: 66px;
 }
@@ -93,7 +94,7 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    color: rgba(1,47,107,1);
+    color: rgba(1, 47, 107, 1);
     font-size: 26px;
     font-weight: 500;
     text-decoration: none;
@@ -128,7 +129,7 @@
 .productTitle {
     font-family: 'Inter', sans-serif;
     font-size: 17px;
-    color: rgba(18,18,18,1);
+    color: rgba(18, 18, 18, 1);
     font-weight: 600;
     line-height: 18.5px;
     letter-spacing: -0.2px;
@@ -144,7 +145,7 @@
 .companyName {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    color: rgba(18,18,18,1);
+    color: rgba(18, 18, 18, 1);
     font-weight: 500;
     line-height: 18.5px;
     letter-spacing: -0.01em;
@@ -157,7 +158,7 @@
     width: 19px;
     height: 19px;
     border-radius: 9.5px;
-    background-color: rgba(1,47,107,1);
+    background-color: rgba(1, 47, 107, 1);
 }
 
 .location {
@@ -170,7 +171,7 @@
 .price {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    color: rgba(18,18,18,1);
+    color: rgba(18, 18, 18, 1);
     font-weight: 400;
     line-height: 100%;
     margin-top: 13px;
@@ -187,7 +188,7 @@
     border-radius: 10px;
     width: 1298px;
     height: 243px;
-    background-color: rgba(255,219,176,0.93);
+    background-color: rgba(255, 219, 176, 0.93);
     margin-top: 64px;
     display: flex;
     flex-direction: column;
@@ -199,7 +200,7 @@
 
 .newsCard {
     border-radius: 6px;
-    border: 1px solid rgb(0,0,0);
+    border: 1px solid rgb(0, 0, 0);
     width: 407px;
     height: 132px;
     display: flex;
@@ -238,7 +239,7 @@
 .footer {
     width: 1400px;
     height: 231px;
-    background-color: rgba(1,47,107,1);
+    background-color: rgba(1, 47, 107, 1);
     margin-top: 101px;
     display: flex;
     flex-direction: column;
@@ -252,10 +253,13 @@
 
 .footerContent {
     display: flex;
-    justify-content: space-between; /* spread logo, links, and icons */
+    justify-content: space-between;
+    /* spread logo, links, and icons */
     align-items: center;
-    width: 100%; /* take full footer width */
-    padding: 0 50px; /* optional: spacing from edges */
+    width: 100%;
+    /* take full footer width */
+    padding: 0 50px;
+    /* optional: spacing from edges */
 }
 
 
@@ -271,7 +275,7 @@
 .copyright {
     font-family: 'Inter', sans-serif;
     font-size: 21px;
-    color: rgba(255,255,255,1);
+    color: rgba(255, 255, 255, 1);
     line-height: 26px;
     font-weight: 500;
 }
@@ -279,28 +283,35 @@
 .footerLinks {
     font-family: 'Inter', sans-serif;
     font-size: 18px;
-    color: rgba(255,255,255,1);
+    color: rgba(255, 255, 255, 1);
     line-height: 16px;
     font-weight: 500;
-    text-decoration: none; /* removes underline */
-    background: none; /* removes button background */
-    border: none; /* removes border */
-    padding: 0; /* removes extra padding */
-    cursor: pointer; /* keeps it clickable */
+    text-decoration: none;
+    /* removes underline */
+    background: none;
+    /* removes button background */
+    border: none;
+    /* removes border */
+    padding: 0;
+    /* removes extra padding */
+    cursor: pointer;
+    /* keeps it clickable */
 }
 
 
 .footerNav {
     display: flex;
-    gap: 30px; /* spacing between links */
+    gap: 30px;
+    /* spacing between links */
     justify-content: center;
-    flex: 1; /* take center space */
+    flex: 1;
+    /* take center space */
 }
 
 .disclaimer {
     width: 1440px;
     height: 202px;
-    background-color: rgba(138,159,187,0.37);
+    background-color: rgba(138, 159, 187, 0.37);
     margin-top: 30px;
     display: flex;
     justify-content: center;
@@ -312,7 +323,7 @@
     font-size: 18px;
     text-align: center;
     width: 923px;
-    color: rgba(0,0,0,1);
+    color: rgba(0, 0, 0, 1);
     line-height: 24px;
     font-weight: 300;
 }
@@ -363,7 +374,7 @@
 .headerIndicator {
     width: 7px;
     height: 7px;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     margin: 0 10px;
     cursor: pointer;
@@ -420,7 +431,7 @@
     right: 0;
     background-color: white;
     min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 100;
     border-radius: 8px;
     overflow: hidden;
@@ -451,70 +462,71 @@
 
 /* Slider styles */
 .sliderSection {
-  position: relative;
-  width: 1308px;
-  height: 228px;
-  margin-top: 72px;
-  border-radius: 10px;
-  overflow: hidden;
+    position: relative;
+    width: 1308px;
+    height: 228px;
+    margin-top: 72px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .sliderContainer {
-  position: relative;
-  width: 100%;
-  height: 100%;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .sliderImage {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 
 .sliderImage.active {
-  opacity: 1;
+    opacity: 1;
 }
 
 
 .sliderContentOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 50;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 40px;
-  width: 400px;
-  height: 100%;
-  background: linear-gradient(to right, rgba(0,0,0,0.7), transparent);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    width: 400px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
 }
 
 .sliderDots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 60;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 60;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: rgba(255,255,255,0.5);
-  cursor: pointer;
-  transition: background-color 0.3s;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.dot.active, .dot:hover {
-  background-color: white;
+.dot.active,
+.dot:hover {
+    background-color: white;
 }
 
 /* Scrolling animation */
@@ -522,6 +534,7 @@
     0% {
         transform: translateX(0%);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -540,185 +553,185 @@
 
 /* Featured Sellers section */
 .featuredSellers {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  width: 1300px;
-  margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 1300px;
+    margin-top: 50px;
 }
 
 .sellersHeader {
-  margin-left: 9px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 48px;
+    margin-left: 9px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 48px;
 }
 
 .sellersTitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 30px;
-  min-width: 236px;
-  white-space: nowrap;
-  color: rgba(0,0,0,1);
-  line-height: 48px;
-  font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    min-width: 236px;
+    white-space: nowrap;
+    color: rgba(0, 0, 0, 1);
+    line-height: 48px;
+    font-weight: 600;
 }
 
 .sellersLogos {
-  margin-top: 44px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 100px;
+    margin-top: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
 }
 
 .sellerLogo {
-  width: 100px;
-  height: 100px;
+    width: 100px;
+    height: 100px;
 }
 
 
 /* Latest Listings section */
 .latestListings {
-  width: 1308px;
-  margin-top: 72px;
+    width: 1308px;
+    margin-top: 72px;
 }
 
 .sectionHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
 }
 
 .sectionTitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 30px;
-  color: rgba(0,0,0,1);
-  font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 600;
 }
 
 .seeAll {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: rgba(1,47,107,1);
-  font-size: 26px;
-  font-weight: 500;
-  text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: rgba(1, 47, 107, 1);
+    font-size: 26px;
+    font-weight: 500;
+    text-decoration: none;
 }
 
 .productGrid {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 45px;
-  width: 1300px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 45px;
+    width: 1300px;
 }
 
 .productContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  height: 492px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    height: 492px;
 }
 
 .productImage {
-  width: 310px;
-  height: 298px;
-  border-radius: 10px;
+    width: 310px;
+    height: 298px;
+    border-radius: 10px;
 }
 
 .productTitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 17px;
-  color: rgba(18,18,18,1);
-  font-weight: 600;
-  line-height: 18.5px;
-  letter-spacing: -0.2px;
-  margin-top: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: rgba(18, 18, 18, 1);
+    font-weight: 600;
+    line-height: 18.5px;
+    letter-spacing: -0.2px;
+    margin-top: 14px;
 }
 
 .companyInfo {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: 11px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 11px;
 }
 
 .companyName {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  color: rgba(18,18,18,1);
-  font-weight: 500;
-  line-height: 18.5px;
-  letter-spacing: -0.01em;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: rgba(18, 18, 18, 1);
+    font-weight: 500;
+    line-height: 18.5px;
+    letter-spacing: -0.01em;
 }
 
 .verifiedBadge {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 19px;
-  height: 19px;
-  border-radius: 9.5px;
-  background-color: rgba(1,47,107,1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 19px;
+    height: 19px;
+    border-radius: 9.5px;
+    background-color: rgba(1, 47, 107, 1);
 }
 
 .location {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 11px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 11px;
 }
 
 .price {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  color: rgba(18,18,18,1);
-  font-weight: 400;
-  line-height: 100%;
-  margin-top: 13px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: rgba(18, 18, 18, 1);
+    font-weight: 400;
+    line-height: 100%;
+    margin-top: 13px;
 }
 
 .timePosted {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 12px;
 }
 
 .productActions {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  width: 100%;
-  margin-top: 11px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    margin-top: 11px;
 }
 
 .startChatBtnSmall {
-  border-radius: 7.8px;
-  border: 0.6px solid rgb(217,217,217);
-  width: 90px;
-  height: 32px;
-  background-color: rgba(255,140,0,1);
-  margin-left: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    border-radius: 7.8px;
+    border: 0.6px solid rgb(217, 217, 217);
+    width: 90px;
+    height: 32px;
+    background-color: rgba(255, 140, 0, 1);
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .startChatText {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  color: rgba(255,255,255,1);
-  line-height: 14.2px;
-  font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 1);
+    line-height: 14.2px;
+    font-weight: 600;
 }
 
 /* Industry updates section */
@@ -740,7 +753,7 @@
 .updatesTitle {
     font-family: 'Inter', sans-serif;
     font-size: 30px;
-    color: rgba(0,0,0,1);
+    color: rgba(0, 0, 0, 1);
     line-height: 48px;
     font-Weight: 600;
 }
@@ -812,7 +825,7 @@
 .eventsTitle {
     font-family: 'Inter', sans-serif;
     font-size: 30px;
-    color: rgba(0,0,0,1);
+    color: rgba(0, 0, 0, 1);
     line-height: 48px;
     font-weight: 600;
     white-space: nowrap;
@@ -824,6 +837,7 @@
     0% {
         transform: translateX(0%);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -855,8 +869,8 @@
     align-items: center;
     background: white;
     border-radius: 20px;
-    border: 3px solid rgb(255,140,0);
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    border: 3px solid rgb(255, 140, 0);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     height: 55px;
     width: 600px;
     position: relative;
@@ -879,7 +893,7 @@
 
 .searchButton {
     margin-left: 30px;
-    background-color: rgba(1,47,107,1);
+    background-color: rgba(1, 47, 107, 1);
     height: 49px;
     width: 150px;
     border-radius: 0 17px 17px 0;
@@ -894,52 +908,59 @@
     .container {
         width: 100%;
     }
-    
-    .header, .navBar, .featuredSection, .productGrid, .adBanner, 
-    .newsGrid, .eventsSection, .footer, .disclaimer {
+
+    .header,
+    .navBar,
+    .featuredSection,
+    .productGrid,
+    .adBanner,
+    .newsGrid,
+    .eventsSection,
+    .footer,
+    .disclaimer {
         width: 100%;
     }
-    
+
     .searchBar {
         width: 90%;
         left: 5%;
     }
-    
+
     .productGrid {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .productCard {
         width: 90%;
     }
-    
+
     .newsGrid {
         flex-direction: column;
         height: auto;
     }
-    
+
     .newsCard {
         width: 90%;
         height: auto;
         flex-direction: column;
     }
-    
+
     .eventsSection {
         flex-direction: column;
     }
-    
+
     .eventImage {
         width: 90%;
         height: auto;
     }
-    
+
     .footerContent {
         flex-direction: column;
         align-items: center;
         gap: 20px;
     }
-    
+
     .footerBottom {
         flex-direction: column;
         gap: 20px;
@@ -952,13 +973,13 @@
 :global(html),
 :global(body),
 :global(#root) {
-  overflow-x: hidden !important;  
-  overflow-y: auto !important;
-  height: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
 }
 
 :global(#root > div) {
-  overflow-x: hidden !important;  
-  overflow-y: auto !important;
-  height: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
 }
