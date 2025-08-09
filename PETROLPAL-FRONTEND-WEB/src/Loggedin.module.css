@@ -804,7 +804,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 97%;
     height: 48px;
     padding-right: 30px;
 }
@@ -814,9 +814,30 @@
     font-size: 30px;
     color: rgba(0,0,0,1);
     line-height: 48px;
-    font-Weight: 600;
+    font-weight: 600;
     white-space: nowrap;
     margin-left: 20px;
+}
+
+/* Scrolling animation */
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.scrollWrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.scrollContainer {
+    display: flex;
+    width: fit-content;
+    animation: scrollLeft 30s linear infinite;
 }
 
 .eventImageScroll {

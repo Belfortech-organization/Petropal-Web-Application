@@ -23,36 +23,13 @@ const Signin = () => {
     }));
   };
 
-  const handleLogin = async (e: { preventDefault: () => void; }) => {
+  const handleLogin = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    
-    try {
-      const response = await fetch('https://petropal.ontapke.com/acc/api/auth/login/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credentials),
-      });
-
-      const data = await response.json();
-
-      if (data.acc_id) {
-        // OTP sent to email, redirect to verification
-        navigate('/verify-otp', {
-          state: {
-            accId: data.acc_id,
-            email: credentials.username,
-            flow: 'login',
-          },
-        });
-      } else {
-        setMessage(data.message || 'Login failed.');
-      }
-    } catch (error) {
-      setMessage('Network error. Try again.');
-    }
+  
+    // For development: Skip API call and go straight to logged-in page
+    navigate('/loggedin');
   };
+
 
   return (
     <>

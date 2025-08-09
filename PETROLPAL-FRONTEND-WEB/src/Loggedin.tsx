@@ -676,7 +676,7 @@ const handleSliderMouseLeave = () => {
 </div>
 
 {/* Latest Listings Section - 4 Column Grid (12 Products) */}
-<div style={{width: '1308px', marginTop: '72px'}}>
+<div style={{width: '1300px', marginTop: '72px'}}>
   {/* Section Header */}
   <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '45px'}}>
     <div style={{fontFamily: '"Inter", sans-serif', fontSize: '30px', color: 'rgba(0,0,0,1)', lineHeight: '48px', fontWeight: 600}}>
@@ -712,7 +712,7 @@ const handleSliderMouseLeave = () => {
   <div style={{
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 1fr)',
-    gap: '30px',
+    gap: '20px',
     width: '100%'
   }}>
     {/* Row 1 */}
@@ -1255,43 +1255,47 @@ const handleSliderMouseLeave = () => {
         </div>
       </div>
 
-      {/* Upcoming Events Section */}
-      <div className={styles.upcomingEvents}>
-        {/* Section Header */}
-        <div className={styles.eventsHeader}>
-          <div className={styles.eventsTitle}>Upcoming Events</div>
-          <div className={styles.seeAll}>
-            <span>See All</span>
-            <img width="18px" height="23px" src="/images/arrow.png" alt="Arrow" style={{ marginLeft: '-4px' }} />
-          </div>
-        </div>
+{/* Upcoming Events Section */}
+<div className={styles.upcomingEvents}>
+  {/* Section Header */}
+  <div className={styles.eventsHeader}>
+    <div className={styles.eventsTitle}>Upcoming Events</div>
+    <Link 
+      to="/signin/" 
+      onClick={() => window.scrollTo(0, 0)}
+      className={styles.seeAll}
+    >
+      <span>See All</span>
+      <img width="18px" height="23px" src="/images/arrow.png" alt="Arrow" />
+    </Link>
+  </div>
 
-        {/* Scrolling Events */}
-        <div className={styles.scrollWrapper}>
-          <div className={styles.scrollContainer}>
-            {/* Duplicate image set twice for seamless scroll */}
-            {[1, 2].map((set) => (
-              <React.Fragment key={set}>
-                <img
-                  className={styles.eventImageScroll}
-                  src="/images/upcoming1.png"
-                  alt="Energy Conference"
-                />
-                <img
-                  className={styles.eventImageScroll}
-                  src="/images/upcoming2.png"
-                  alt="Trade Summit"
-                />
-                <img
-                  className={styles.eventImageScroll}
-                  src="/images/upcoming3.png"
-                  alt="Industry Expo"
-                />
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      </div>
+  {/* Scrolling Events */}
+  <div className={styles.scrollWrapper}>
+    <div className={styles.scrollContainer}>
+      {/* Duplicate image set twice for seamless scroll */}
+      {[1, 2].map((set) => (
+        <React.Fragment key={set}>
+          <img
+            className={styles.eventImageScroll}
+            src="/images/upcoming1.png"
+            alt="Energy Conference"
+          />
+          <img
+            className={styles.eventImageScroll}
+            src="/images/upcoming2.png"
+            alt="Trade Summit"
+          />
+          <img
+            className={styles.eventImageScroll}
+            src="/images/upcoming3.png"
+            alt="Industry Expo"
+          />
+        </React.Fragment>
+      ))}
+    </div>
+  </div>
+</div>
 
       {/* Footer Section */}
       <div className={styles.footer}>
