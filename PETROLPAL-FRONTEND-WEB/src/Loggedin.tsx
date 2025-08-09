@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { CSSProperties } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import DownloadModal from './DownloadModal';
 import ContactModal from './ContactModal';
 import styles from './Loggedin.module.css';
+
 
 // Import the modal components
 import AddModal from './AddModal';
@@ -42,6 +44,128 @@ const Loggedin = () => {
   // Data states
   const [selectedImage, setSelectedImage] = useState<string | undefined>(undefined);
   const [adImage, setAdImage] = useState<string | undefined>(undefined);
+
+  const productCardStyle: CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-start',
+  alignItems: 'flex-start',
+  height: '492px'
+};
+
+const productImageStyle: CSSProperties = {
+  width: '310px',
+  height: '298px',
+  borderRadius: '10px'
+};
+
+const productTitleStyle: CSSProperties = {
+  marginTop: '14px',
+  fontFamily: '"Inter", sans-serif',
+  fontSize: '17px',
+  minWidth: '295px',
+  whiteSpace: 'nowrap',
+  color: 'rgba(18,18,18,1)',
+  lineHeight: '18.5px',
+  letterSpacing: '-0.2px',
+  fontWeight: 600
+};
+
+const companyInfoStyle: CSSProperties = {
+  marginTop: '11px',
+  display: 'flex',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  gap: '4px',
+  width: '247px',
+  height: '19px'
+};
+
+const companyNameStyle: CSSProperties = {
+  fontFamily: '"Inter", sans-serif',
+  fontSize: '16px',
+  whiteSpace: 'nowrap',
+  color: 'rgba(18,18,18,1)',
+  lineHeight: '18.5px',
+  letterSpacing: '-0.01em',
+  fontWeight: 500
+};
+
+const verifiedBadgeStyle: CSSProperties = {
+  borderRadius: '9.5px',
+  width: '19px',
+  height: '19px',
+  backgroundColor: 'rgba(1,47,107,1)',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+};
+
+const locationStyle: CSSProperties = {
+  marginTop: '11px',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '8px',
+  width: '138.3px',
+  height: '19px'
+};
+
+const priceStyle: CSSProperties = {
+  marginTop: '14px',
+  fontFamily: '"Inter", sans-serif',
+  fontSize: '16px',
+  minWidth: '97px',
+  whiteSpace: 'nowrap',
+  color: 'rgba(18,18,18,1)',
+  lineHeight: '100%',
+  fontWeight: 400
+};
+
+const timePostedStyle: CSSProperties = {
+  marginTop: '12px',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '11px',
+  width: '167px',
+  height: '19px'
+};
+
+const productActionsStyle: CSSProperties = {
+  marginTop: '11px',
+  display: 'flex',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  width: '100%'
+};
+
+const startChatBtnStyle: CSSProperties = {
+  borderRadius: '7.8px',
+  border: '0.6px solid rgb(217,217,217)',
+  width: '90px',
+  height: '32px',
+  backgroundColor: 'rgba(255,140,0,1)',
+  marginLeft: 'auto',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+};
+
+const startChatTextStyle: CSSProperties = {
+  fontFamily: '"Inter", sans-serif',
+  fontSize: '13px',
+  color: 'rgba(255,255,255,1)',
+  lineHeight: '14.2px',
+  fontWeight: 600
+};
+
+  const handleDotClick = (index: number) => {
+  setCurrentSlideIndex(index);
+  if (sliderInterval) clearInterval(sliderInterval);
+  const interval = setInterval(() => {
+    setCurrentSlideIndex(prev => (prev + 1) % 3);
+  }, 4000);
+  setSliderInterval(interval);
+};
 
   // Handle opening the add modal
   const handleAddClick = () => {
@@ -188,28 +312,29 @@ const Loggedin = () => {
   const handleSliderMouseEnter = () => {
     if (sliderInterval) clearInterval(sliderInterval);
   };
+const [currentAdIndex, setCurrentAdIndex] = useState(0);
+// Use undefined instead of null for better type compatibility with clearInterval
+const [adSliderInterval, setAdSliderInterval] = useState<NodeJS.Timeout | undefined>(undefined);
 
-  const handleSliderMouseLeave = () => {
-    const interval = setInterval(() => {
-      setCurrentSlideIndex(prev => (prev + 1) % 3);
-    }, 4000);
-    setSliderInterval(interval);
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentAdIndex(prev => (prev + 1) % 4);
+  }, 4000);
+
+  setAdSliderInterval(interval);
+
+  return () => {
+    clearInterval(interval);
   };
+}, []);
 
-  const [currentAdIndex, setCurrentAdIndex] = useState(0);
-  const [adSliderInterval, setAdSliderInterval] = useState<NodeJS.Timeout | null>(null);
+const handleSliderMouseLeave = () => {
+  const interval = setInterval(() => {
+    setCurrentAdIndex(prev => (prev + 1) % 4);
+  }, 4000);
+  setAdSliderInterval(interval);
+};
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentAdIndex((prev) => (prev + 1) % 4);
-    }, 4000);
-
-    setAdSliderInterval(interval);
-
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, []);
-
-  // Header slides data
   const headerSlides = [
     [
       { id: 1, img: "/images/headerimage1.png", caption: "Automotive Fuels" },
@@ -278,16 +403,23 @@ const Loggedin = () => {
       <div className={styles.header}>
         <div className={styles.navBar}>
           {/* Top Navigation Row */}
-          <div className={styles.navLinks} style={{ width: '97%' }}>
+          <div className={styles.navLinks} style={{ width: '96%' }}>
             {/* Logo */}
             <Link to="">
               <img className={styles.logo} src="/images/logo_.png" alt="Petropal Logo" />
             </Link>
             
             {/* Category Dropdown */}
-            <div style={{ marginLeft: '37.2px', display: 'flex', alignItems: 'center' }}>
-              <div className={styles.navLink}>Search by Category</div>
-              <img style={{ marginLeft: '1.8px' }} width="13px" height="15px" src="/images/dropp.png" alt="Dropdown" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginLeft: '20px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.1' }}>
+                <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'white', fontWeight: 600 }}>
+                  Search by
+                </span>
+                <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'white', fontWeight: 600 }}>
+                  Category
+                </span>
+              </div>
+              <img width="13" height="15" src="/images/dropp.png" alt="Dropdown" />
             </div>
             
             {/* Search Bar */}
@@ -318,18 +450,18 @@ const Loggedin = () => {
             </div>
             
             {/* Language and Profile Section */}
-            <div style={{ marginLeft: '30px', display: 'flex', alignItems: 'center' }}>
+            <div style={{ marginRight: '30px', display: 'flex', alignItems: 'center' }}>
               {/* Language Selector */}
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <div style={{ marginLeft: '12px', fontFamily: '"Lato", sans-serif', fontSize: '18px', color: 'white', fontWeight: 500 }}>
+                <div style={{ marginRight: '15px', fontFamily: '"Lato", sans-serif', fontSize: '18px', color: 'white', fontWeight: 500 }}>
                   English
                 </div>
-                <img style={{ marginLeft: '12px' }} width="11px" height="7px" src="/images/drop.png" alt="Dropdown" />
+                <img style={{ marginRight: '50px' }} width="11px" height="7px" src="/images/drop.png" alt="Dropdown" />
               </div>
               
               {/* Profile Section */}
               <Link to="/user" style={{ textDecoration: 'none' }}>
-                <div style={{ marginLeft: '36px', display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+                <div style={{ marginRight: '36px', display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
                   <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '20px', color: 'white', fontWeight: 500, marginRight: '24px' }}>
                     Owen I.
                   </div>
@@ -465,519 +597,581 @@ const Loggedin = () => {
         </div>
       </div>
 
-      {/* Featured Sellers Content */}
-      <div className={styles.featuredSellers}>
-        {/* Featured Sellers header with See All link */}
-        <div className={styles.sellersHeader}>
-          <div className={styles.sellersTitle}>Featured Sellers</div>
-          <Link to="/sellers" className={styles.seeAll}>
-            <span>See All</span>
-            <img width="18px" height="23px" src="/images/arrow.png" alt="Arrow" />
-          </Link>
-        </div>
-        
-        {/* Seller logos */}
-        <div className={styles.sellersLogos}>
-          <img className={styles.sellerLogo} src="/images/seller1.png" alt="Seller" />
-          <img className={styles.sellerLogo} src="/images/seller2.png" alt="Seller" />
-          <img className={styles.sellerLogo} src="/images/seller3.png" alt="Seller" />
-          <img className={styles.sellerLogo} src="/images/seller4.png" alt="Seller" />
-          <img className={styles.sellerLogo} src="/images/seller5.png" alt="Seller" />
-          <img className={styles.sellerLogo} src="/images/seller6.png" alt="Seller" />
-          <img className={styles.sellerLogo} src="/images/seller7.png" alt="Seller" />
-          <img className={styles.sellerLogo} src="/images/seller7.png" alt="Seller" />
-        </div>
-        
-        {/* Slider Section */}
-        <div className={styles.featuredSection}>
-          {/* Slider container */}
-          <div
-            id="imageSlider"
-            className={styles.sliderContainer}
-            onMouseEnter={handleSliderMouseEnter}
-            onMouseLeave={handleSliderMouseLeave}
-          >
-            <img
-              src="/images/slider1.png"
-              alt="Slider 1"
-              className={`${styles.sliderImage} ${currentSlideIndex === 0 ? 'active' : ''}`}
-            />
-            <img
-              src="/images/slider2.png"
-              alt="Slider 2"
-              className={`${styles.sliderImage} ${currentSlideIndex === 1 ? 'active' : ''}`}
-            />
-            <img
-              src="/images/slider3.png"
-              alt="Slider 3"
-              className={`${styles.sliderImage} ${currentSlideIndex === 2 ? 'active' : ''}`}
-            />
+      {/* Featured Sellers Section */}
+<div className={styles.featuredSellers}>
+  {/* Featured Sellers header with See All link */}
+  <div className={styles.sellersHeader}>
+    <div className={styles.sellersTitle}>Featured Sellers</div>
+    <Link 
+      to="/sellers/" 
+      onClick={() => window.scrollTo(0, 0)}
+      className={styles.seeAll}
+    >
+      <span>See All</span>
+      <img width="18px" height="23px" src="/images/arrow.png" alt="Arrow" />
+    </Link>
+  </div>
+  
+  {/* Seller logos */}
+  <div className={styles.sellersLogos}>
+    <img className={styles.sellerLogo} src="/images/seller1.png" alt="Seller" />
+    <img className={styles.sellerLogo} src="/images/seller2.png" alt="Seller" />
+    <img className={styles.sellerLogo} src="/images/seller3.png" alt="Seller" />
+    <img className={styles.sellerLogo} src="/images/seller4.png" alt="Seller" />
+    <img className={styles.sellerLogo} src="/images/seller5.png" alt="Seller" />
+    <img className={styles.sellerLogo} src="/images/seller6.png" alt="Seller" />
+    <img className={styles.sellerLogo} src="/images/seller7.png" alt="Seller" />
+    <img className={styles.sellerLogo} src="/images/seller7.png" alt="Seller" />
+  </div>
+  
+  {/* Slider Section */}
+  <div className={styles.sliderSection}>
+    {/* Slider container */}
+    <div
+      id="imageSlider"
+      className={styles.sliderContainer}
+      onMouseEnter={handleSliderMouseEnter}
+      onMouseLeave={handleSliderMouseLeave}
+    >
+      <img
+        src="/images/slider1.png"
+        alt="Slider 1"
+        className={`${styles.sliderImage} ${currentSlideIndex === 0 ? styles.active : ''}`}
+      />
+      <img
+        src="/images/slider2.png"
+        alt="Slider 2"
+        className={`${styles.sliderImage} ${currentSlideIndex === 1 ? styles.active : ''}`}
+      />
+      <img
+        src="/images/slider3.png"
+        alt="Slider 3"
+        className={`${styles.sliderImage} ${currentSlideIndex === 2 ? styles.active : ''}`}
+      />
 
-            {/* Content overlay on the left */}
-            <div className={styles.sliderContentOverlay}>
-              <div style={{ fontSize: '50px', color: 'white', fontWeight: 600 }}>40%</div>
-              <div style={{ marginTop: '10px', fontSize: '24px', color: 'white', fontWeight: 600 }}>Today's special</div>
-              <div style={{ marginTop: '10px', fontSize: '20px', color: 'white', fontWeight: 500 }}>Hurry! Grab Your Discounted Fuel Now!</div>
-            </div>
-
-            {/* Navigation dots */}
-            <div className={styles.sliderDots}>
-              <span
-                className={`${styles.dot} ${currentSlideIndex === 0 ? 'active' : ''}`}
-                onClick={() => {
-                  setCurrentSlideIndex(0);
-                  if (sliderInterval) clearInterval(sliderInterval);
-                  const interval = setInterval(() => {
-                    setCurrentSlideIndex(prev => (prev + 1) % 3);
-                  }, 4000);
-                  setSliderInterval(interval);
-                }}
-              ></span>
-              <span
-                className={`${styles.dot} ${currentSlideIndex === 1 ? 'active' : ''}`}
-                onClick={() => {
-                  setCurrentSlideIndex(1);
-                  if (sliderInterval) clearInterval(sliderInterval);
-                  const interval = setInterval(() => {
-                    setCurrentSlideIndex(prev => (prev + 1) % 3);
-                  }, 4000);
-                  setSliderInterval(interval);
-                }}
-              ></span>
-              <span
-                className={`${styles.dot} ${currentSlideIndex === 2 ? 'active' : ''}`}
-                onClick={() => {
-                  setCurrentSlideIndex(2);
-                  if (sliderInterval) clearInterval(sliderInterval);
-                  const interval = setInterval(() => {
-                    setCurrentSlideIndex(prev => (prev + 1) % 3);
-                  }, 4000);
-                  setSliderInterval(interval);
-                }}
-              ></span>
-            </div>
-          </div>
-        </div>
+      {/* Content overlay on the left */}
+      <div className={styles.sliderContentOverlay}>
+        <div style={{ fontSize: '50px', color: 'white', fontWeight: 600 }}>40%</div>
+        <div style={{ marginTop: '10px', fontSize: '24px', color: 'white', fontWeight: 600 }}>Today's special</div>
+        <div style={{ marginTop: '10px', fontSize: '20px', color: 'white', fontWeight: 500 }}>Hurry! Grab Your Discounted Fuel Now!</div>
       </div>
 
-      {/* Latest Listings Section - 4 Column Grid (12 Products) */}
-      <div style={{ width: '1308px', marginTop: '72px' }}>
-        {/* Section Header */}
-        <div className={styles.sectionHeader}>
-          <div className={styles.sectionTitle}>Latest Listings</div>
-          <Link 
-            to="/listings/" 
-            onClick={() => window.scrollTo(0, 0)}
-            className={styles.seeAll}
-          >
-            <span>See All</span>
-            <img width="18px" height="23px" src="/images/arrow.png" alt="Arrow" />
-          </Link>
-        </div>
-        
-        {/* 4-Column Product Grid */}
-        <div className={styles.productGrid}>
-          {/* Row 1 */}
-          {/* Product 1 */}
-          <div className={styles.productContainer}>
-            <img className={styles.productImage} src="/images/product1.png" alt="Diesel" />
-            <div className={styles.productTitle}>Diesel (5000L Min.)</div>
-            <div className={styles.companyInfo}>
-              <a href="/profile" className={styles.companyName}>Aidmax Energy</a>
-              <div className={styles.verifiedBadge}>
-                <img src="/images/verified.png" width={13} height={13} alt="Verified" />
-              </div>
-            </div>
-            <div className={styles.location}>
-              <img width={14} height={16} src="/images/location_.png" alt="Location" />
-              <div>Nairobi, Kenya</div>
-            </div>
-            <div className={styles.price}>KES 183/litre</div>
-            <div className={styles.timePosted}>
-              <img width={17} height={17} src="/images/clock.png" alt="Clock" />
-              <div>Posted 15 min ago</div>
-            </div>
-            <div className={styles.productActions}>
-              <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-              <div className={styles.startChatBtnSmall}>
-                <div className={styles.startChatText}>Start Chat</div>
-              </div>
-            </div>
-          </div>
+      {/* Navigation dots */}
+      <div className={styles.sliderDots}>
+        <span
+          className={`${styles.dot} ${currentSlideIndex === 0 ? styles.active : ''}`}
+          onClick={() => handleDotClick(0)}
+        ></span>
+        <span
+          className={`${styles.dot} ${currentSlideIndex === 1 ? styles.active : ''}`}
+          onClick={() => handleDotClick(1)}
+        ></span>
+        <span
+          className={`${styles.dot} ${currentSlideIndex === 2 ? styles.active : ''}`}
+          onClick={() => handleDotClick(2)}
+        ></span>
+      </div>
+    </div>
+  </div>
+</div>
 
-          {/* Product 2 */}
-          <div className={styles.productContainer}>
-            <img className={styles.productImage} src="/images/product2.png" alt="Gas-oil" />
-            <div className={styles.productTitle}>Gas-oil (10,000L Min.)</div>
-            <div className={styles.companyInfo}>
-              <a href="/profile" className={styles.companyName}>Hass Petroleum</a>
-              <div className={styles.verifiedBadge}>
-                <img src="/images/verified.png" width={13} height={13} alt="Verified" />
-              </div>
-            </div>
-            <div className={styles.location}>
-              <img width={14} height={16} src="/images/location_.png" alt="Location" />
-              <div>Kisumu</div>
-            </div>
-            <div className={styles.price}>KES 183/litre</div>
-            <div className={styles.timePosted}>
-              <img width={17} height={17} src="/images/clock.png" alt="Clock" />
-              <div>Posted 1h ago</div>
-            </div>
-            <div className={styles.productActions}>
-              <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-              <div className={styles.startChatBtnSmall}>
-                <div className={styles.startChatText}>Start Chat</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Product 3 */}
-          <div className={styles.productContainer}>
-            <img className={styles.productImage} src="/images/product3.png" alt="Kerosene" />
-            <div className={styles.productTitle}>Kerosene (50,000L Min.)</div>
-            <div className={styles.companyInfo}>
-              <a href="/profile" className={styles.companyName}>Dalbit Petroleum</a>
-              <div className={styles.verifiedBadge}>
-                <img src="/images/verified.png" width={13} height={13} alt="Verified" />
-              </div>
-            </div>
-            <div className={styles.location}>
-              <img width={14} height={16} src="/images/location_.png" alt="Location" />
-              <div>Mombasa</div>
-            </div>
-            <div className={styles.price}>KES 183/litre</div>
-            <div className={styles.timePosted}>
-              <img width={17} height={17} src="/images/clock.png" alt="Clock" />
-              <div>Posted 2h ago</div>
-            </div>
-            <div className={styles.productActions}>
-              <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-              <div className={styles.startChatBtnSmall}>
-                <div className={styles.startChatText}>Start Chat</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Product 4 */}
-          <div className={styles.productContainer}>
-            <img className={styles.productImage} src="/images/product4.png" alt="Solar Panels" />
-            <div className={styles.productTitle}>Solar Panels (100 Units)</div>
-            <div className={styles.companyInfo}>
-              <a href="/profile" className={styles.companyName}>Green Energy Ltd</a>
-              <div className={styles.verifiedBadge}>
-                <img src="/images/verified.png" width={13} height={13} alt="Verified" />
-              </div>
-            </div>
-            <div className={styles.location}>
-              <img width={14} height={16} src="/images/location_.png" alt="Location" />
-              <div>Nakuru</div>
-            </div>
-            <div className={styles.price}>KES 8,500/unit</div>
-            <div className={styles.timePosted}>
-              <img width={17} height={17} src="/images/clock.png" alt="Clock" />
-              <div>Posted 3h ago</div>
-            </div>
-            <div className={styles.productActions}>
-              <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-              <div className={styles.startChatBtnSmall}>
-                <div className={styles.startChatText}>Start Chat</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Row 2 */}
-          {/* Product 5 */}
-          <div className={styles.productContainer}>
-            <img className={styles.productImage} src="/images/product5.png" alt="Fuel Additives" />
-            <div className={styles.productTitle}>Fuel Additives (20L)</div>
-            <div className={styles.companyInfo}>
-              <a href="/profile" className={styles.companyName}>Chemco Solutions</a>
-              <div className={styles.verifiedBadge}>
-                <img src="/images/verified.png" width={13} height={13} alt="Verified" />
-              </div>
-            </div>
-            <div className={styles.location}>
-              <img width={14} height={16} src="/images/location_.png" alt="Location" />
-              <div>Eldoret</div>
-            </div>
-            <div className={styles.price}>KES 2,400/L</div>
-            <div className={styles.timePosted}>
-              <img width={17} height={17} src="/images/clock.png" alt="Clock" />
-              <div>Posted 4h ago</div>
-            </div>
-            <div className={styles.productActions}>
-              <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-              <div className={styles.startChatBtnSmall}>
-                <div className={styles.startChatText}>Start Chat</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Product 6 */}
-          <div className={styles.productContainer}>
-            <img className={styles.productImage} src="/images/product6.png" alt="Lubricants" />
-            <div className={styles.productTitle}>Lubricants (200 Drums)</div>
-            <div className={styles.companyInfo}>
-              <a href="/profile" className={styles.companyName}>OilTech Kenya</a>
-              <div className={styles.verifiedBadge}>
-                <img src="/images/verified.png" width={13} height={13} alt="Verified" />
-              </div>
-            </div>
-            <div className={styles.location}>
-              <img width={14} height={16} src="/images/location_.png" alt="Location" />
-              <div>Thika</div>
-            </div>
-            <div className={styles.price}>KES 5,200/drum</div>
-            <div className={styles.timePosted}>
-              <img width={17} height={17} src="/images/clock.png" alt="Clock" />
-              <div>Posted 5h ago</div>
-            </div>
-            <div className={styles.productActions}>
-              <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-              <div className={styles.startChatBtnSmall}>
-                <div className={styles.startChatText}>Start Chat</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Product 7 */}
-          <div className={styles.productContainer}>
-            <img className={styles.productImage} src="/images/product7.png" alt="Petrol" />
-            <div className={styles.productTitle}>Petrol (10,000L Min.)</div>
-            <div className={styles.companyInfo}>
-              <a href="/profile" className={styles.companyName}>Prime Fuels</a>
-              <div className={styles.verifiedBadge}>
-                <img src="/images/verified.png" width={13} height={13} alt="Verified" />
-              </div>
-            </div>
-            <div className={styles.location}>
-              <img width={14} height={16} src="/images/location_.png" alt="Location" />
-              <div>Machakos</div>
-            </div>
-            <div className={styles.price}>KES 195/litre</div>
-            <div className={styles.timePosted}>
-              <img width={17} height={17} src="/images/clock.png" alt="Clock" />
-              <div>Posted 6h ago</div>
-            </div>
-            <div className={styles.productActions}>
-              <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-              <div className={styles.startChatBtnSmall}>
-                <div className={styles.startChatText}>Start Chat</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Product 8 */}
-          <div className={styles.productContainer}>
-            <img className={styles.productImage} src="/images/product8.png" alt="Batteries" />
-            <div className={styles.productTitle}>Solar Batteries (50 Units)</div>
-            <div className={styles.companyInfo}>
-              <a href="/profile" className={styles.companyName}>PowerStore Kenya</a>
-              <div className={styles.verifiedBadge}>
-                <img src="/images/verified.png" width={13} height={13} alt="Verified" />
-              </div>
-            </div>
-            <div className={styles.location}>
-              <img width={14} height={16} src="/images/location_.png" alt="Location" />
-              <div>Kitui</div>
-            </div>
-            <div className={styles.price}>KES 12,000/unit</div>
-            <div className={styles.timePosted}>
-              <img width={17} height={17} src="/images/clock.png" alt="Clock" />
-              <div>Posted 7h ago</div>
-            </div>
-            <div className={styles.productActions}>
-              <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-              <div className={styles.startChatBtnSmall}>
-                <div className={styles.startChatText}>Start Chat</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Row 3 */}
-          {/* Product 9 */}
-          <div className={styles.productContainer}>
-            <img className={styles.productImage} src="/images/product1.png" alt="Diesel Generators" />
-            <div className={styles.productTitle}>Diesel Generators (10 Units)</div>
-            <div className={styles.companyInfo}>
-              <a href="/profile" className={styles.companyName}>GenPower Ltd</a>
-              <div className={styles.verifiedBadge}>
-                <img src="/images/verified.png" width={13} height={13} alt="Verified" />
-              </div>
-            </div>
-            <div className={styles.location}>
-              <img width={14} height={16} src="/images/location_.png" alt="Location" />
-              <div>Meru</div>
-            </div>
-            <div className={styles.price}>KES 350,000/unit</div>
-            <div className={styles.timePosted}>
-              <img width={17} height={17} src="/images/clock.png" alt="Clock" />
-              <div>Posted 8h ago</div>
-            </div>
-            <div className={styles.productActions}>
-              <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-              <div className={styles.startChatBtnSmall}>
-                <div className={styles.startChatText}>Start Chat</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Product 10 */}
-          <div className={styles.productContainer}>
-            <img className={styles.productImage} src="/images/product2.png" alt="Ethanol" />
-            <div className={styles.productTitle}>Ethanol (20,000L)</div>
-            <div className={styles.companyInfo}>
-              <a href="/profile" className={styles.companyName}>EcoFuels Africa</a>
-              <div className={styles.verifiedBadge}>
-                <img src="/images/verified.png" width={13} height={13} alt="Verified" />
-              </div>
-            </div>
-            <div className={styles.location}>
-              <img width={14} height={16} src="/images/location_.png" alt="Location" />
-              <div>Kisii</div>
-            </div>
-            <div className={styles.price}>KES 150/litre</div>
-            <div className={styles.timePosted}>
-              <img width={17} height={17} src="/images/clock.png" alt="Clock" />
-              <div>Posted 9h ago</div>
-            </div>
-            <div className={styles.productActions}>
-              <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-              <div className={styles.startChatBtnSmall}>
-                <div className={styles.startChatText}>Start Chat</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Product 11 */}
-          <div className={styles.productContainer}>
-            <img className={styles.productImage} src="/images/product3.png" alt="LPG Gas" />
-            <div className={styles.productTitle}>LPG Gas (100 Cylinders)</div>
-            <div className={styles.companyInfo}>
-              <a href="/profile" className={styles.companyName}>GasConnect Ltd</a>
-              <div className={styles.verifiedBadge}>
-                <img src="/images/verified.png" width={13} height={13} alt="Verified" />
-              </div>
-            </div>
-            <div className={styles.location}>
-              <img width={14} height={16} src="/images/location_.png" alt="Location" />
-              <div>Embu</div>
-            </div>
-            <div className={styles.price}>KES 2,800/cylinder</div>
-            <div className={styles.timePosted}>
-              <img width={17} height={17} src="/images/clock.png" alt="Clock" />
-              <div>Posted 10h ago</div>
-            </div>
-            <div className={styles.productActions}>
-              <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-              <div className={styles.startChatBtnSmall}>
-                <div className={styles.startChatText}>Start Chat</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Product 12 */}
-          <div className={styles.productContainer}>
-            <img className={styles.productImage} src="/images/product4.png" alt="Wind Turbines" />
-            <div className={styles.productTitle}>Wind Turbines (5 Units)</div>
-            <div className={styles.companyInfo}>
-              <a href="/profile" className={styles.companyName}>RenewPower Solutions</a>
-              <div className={styles.verifiedBadge}>
-                <img src="/images/verified.png" width={13} height={13} alt="Verified" />
-              </div>
-            </div>
-            <div className={styles.location}>
-              <img width={14} height={16} src="/images/location_.png" alt="Location" />
-              <div>Nyeri</div>
-            </div>
-            <div className={styles.price}>KES 1.2M/unit</div>
-            <div className={styles.timePosted}>
-              <img width={17} height={17} src="/images/clock.png" alt="Clock" />
-              <div>Posted 12h ago</div>
-            </div>
-            <div className={styles.productActions}>
-              <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/message.png" alt="Share" />
-              <img style={{ marginLeft: '18px' }} width="20px" height="20px" src="/images/share.png" alt="Save" />
-              <div className={styles.startChatBtnSmall}>
-                <div className={styles.startChatText}>Start Chat</div>
-              </div>
-            </div>
-          </div>
+{/* Latest Listings Section - 4 Column Grid (12 Products) */}
+<div style={{width: '1308px', marginTop: '72px'}}>
+  {/* Section Header */}
+  <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '45px'}}>
+    <div style={{fontFamily: '"Inter", sans-serif', fontSize: '30px', color: 'rgba(0,0,0,1)', lineHeight: '48px', fontWeight: 600}}>
+      Latest Listings
+    </div>
+    <Link 
+      to="/listings/" 
+      onClick={() => window.scrollTo(0, 0)}
+      style={{
+        display: 'flex', 
+        alignItems: 'center', 
+        gap: '14px', 
+        textDecoration: 'none'
+      }}
+    >
+      <span 
+        style={{
+          fontFamily: '"Inter", sans-serif', 
+          fontSize: '26px', 
+          color: 'rgba(1,47,107,1)', 
+          lineHeight: '22.4px', 
+          letterSpacing: '-0.4px', 
+          fontWeight: 500
+        }}
+      >
+        See All
+      </span>
+      <img width="18px" height="23px" src="/images/arrow.png" alt="Arrow" />
+    </Link>
+  </div>
+  
+  {/* 4-Column Product Grid */}
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gap: '30px',
+    width: '100%'
+  }}>
+    {/* Row 1 */}
+    <div style={productCardStyle}>
+      <img style={productImageStyle} src="/images/product1.png" alt="Diesel" />
+      <div style={productTitleStyle}>Diesel (5000L Min.)</div>
+      <div style={companyInfoStyle}>
+        <a href="/profile" style={{ ...companyNameStyle, textDecoration: 'none' }}>Aidmax Energy</a>
+        <div style={verifiedBadgeStyle}>
+          <img src="/images/verified.png" width={13} height={13} alt="Verified" />
         </div>
       </div>
-
-      {/* Ad Banner Section */}
-        <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: '100%',
-          }}
-          onMouseEnter={() => {
-            if (adSliderInterval) clearInterval(adSliderInterval);
-          }}
-          onMouseLeave={() => {
-            const interval = setInterval(() => {
-              setCurrentAdIndex(prev => (prev + 1) % 4);
-            }, 4000);
-            setAdSliderInterval(interval);
-          }}
-        >
-        {/* Ad Label */}
-        <div className={styles.adLabel}>
-            <div>ad</div>
-            <img width="19px" height="16px" src="/images/X.png" alt="Close" />
-          </div>
-
-          {/* Slide 1 */}
-          <img
-            src="/images/slider5.png"
-            alt="Ad 1"
-            className={`${styles.adSlide} ${currentAdIndex === 0 ? 'active' : ''}`}
-          />
-          {/* Slide 2 */}
-          <img
-            src="/images/slider6.png"
-            alt="Ad 2"
-            className={`${styles.adSlide} ${currentAdIndex === 1 ? 'active' : ''}`}
-          />
-          {/* Slide 3 */}
-          <img
-            src="/images/slider7.png"
-            alt="Ad 3"
-            className={`${styles.adSlide} ${currentAdIndex === 2 ? 'active' : ''}`}
-          />
-          {/* Slide 4 */}
-          <img
-            src="/images/slider4.png"
-            alt="Ad 4"
-            className={`${styles.adSlide} ${currentAdIndex === 3 ? 'active' : ''}`}
-          />
+      <div style={locationStyle}>
+        <img width={14} height={16} src="/images/location_.png" alt="Location" />
+        <div>Nairobi, Kenya</div>
+      </div>
+      <div style={priceStyle}>KES 183/litre</div>
+      <div style={timePostedStyle}>
+        <img width={17} height={17} src="/images/clock.png" alt="Clock" />
+        <div>Posted 15 min ago</div>
+      </div>
+      <div style={productActionsStyle}>
+        <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/message.png" alt="Share" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/share.png" alt="Save" />
+        <div style={startChatBtnStyle}>
+          <div style={startChatTextStyle}>Start Chat</div>
         </div>
+      </div>
+    </div>
+    
+    {/* Product 2 */}
+    <div style={productCardStyle}>
+      <img style={productImageStyle} src="/images/product2.png" alt="Gas-oil" />
+      <div style={productTitleStyle}>Gas-oil (10,000L Min.)</div>
+      <div style={companyInfoStyle}>
+        <a href="/profile" style={{ ...companyNameStyle, textDecoration: 'none' }}>Hass Petroleum</a>
+        <div style={verifiedBadgeStyle}>
+          <img src="/images/verified.png" width={13} height={13} alt="Verified" />
+        </div>
+      </div>
+      <div style={locationStyle}>
+        <img width={14} height={16} src="/images/location_.png" alt="Location" />
+        <div>Kisumu</div>
+      </div>
+      <div style={priceStyle}>KES 183/litre</div>
+      <div style={timePostedStyle}>
+        <img width={17} height={17} src="/images/clock.png" alt="Clock" />
+        <div>Posted 1h ago</div>
+      </div>
+      <div style={productActionsStyle}>
+        <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/message.png" alt="Share" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/share.png" alt="Save" />
+        <div style={startChatBtnStyle}>
+          <div style={startChatTextStyle}>Start Chat</div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Product 3 */}
+    <div style={productCardStyle}>
+      <img style={productImageStyle} src="/images/product3.png" alt="Kerosene" />
+      <div style={productTitleStyle}>Kerosene (50,000L Min.)</div>
+      <div style={companyInfoStyle}>
+        <a href="/profile" style={{ ...companyNameStyle, textDecoration: 'none' }}>Dalbit Petroleum</a>
+        <div style={verifiedBadgeStyle}>
+          <img src="/images/verified.png" width={13} height={13} alt="Verified" />
+        </div>
+      </div>
+      <div style={locationStyle}>
+        <img width={14} height={16} src="/images/location_.png" alt="Location" />
+        <div>Mombasa</div>
+      </div>
+      <div style={priceStyle}>KES 183/litre</div>
+      <div style={timePostedStyle}>
+        <img width={17} height={17} src="/images/clock.png" alt="Clock" />
+        <div>Posted 2h ago</div>
+      </div>
+      <div style={productActionsStyle}>
+        <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/message.png" alt="Share" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/share.png" alt="Save" />
+        <div style={startChatBtnStyle}>
+          <div style={startChatTextStyle}>Start Chat</div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Product 4 */}
+    <div style={productCardStyle}>
+      <img style={productImageStyle} src="/images/product4.png" alt="Solar Panels" />
+      <div style={productTitleStyle}>Solar Panels (100 Units)</div>
+      <div style={companyInfoStyle}>
+        <a href="/profile" style={{ ...companyNameStyle, textDecoration: 'none' }}>Green Energy Ltd</a>
+        <div style={verifiedBadgeStyle}>
+          <img src="/images/verified.png" width={13} height={13} alt="Verified" />
+        </div>
+      </div>
+      <div style={locationStyle}>
+        <img width={14} height={16} src="/images/location_.png" alt="Location" />
+        <div>Nakuru</div>
+      </div>
+      <div style={priceStyle}>KES 8,500/unit</div>
+      <div style={timePostedStyle}>
+        <img width={17} height={17} src="/images/clock.png" alt="Clock" />
+        <div>Posted 3h ago</div>
+      </div>
+      <div style={productActionsStyle}>
+        <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/message.png" alt="Share" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/share.png" alt="Save" />
+        <div style={startChatBtnStyle}>
+          <div style={startChatTextStyle}>Start Chat</div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Row 2 */}
+    {/* Product 5 */}
+    <div style={productCardStyle}>
+      <img style={productImageStyle} src="/images/product5.png" alt="Fuel Additives" />
+      <div style={productTitleStyle}>Fuel Additives (20L)</div>
+      <div style={companyInfoStyle}>
+        <a href="/profile" style={{ ...companyNameStyle, textDecoration: 'none' }}>Chemco Solutions</a>
+        <div style={verifiedBadgeStyle}>
+          <img src="/images/verified.png" width={13} height={13} alt="Verified" />
+        </div>
+      </div>
+      <div style={locationStyle}>
+        <img width={14} height={16} src="/images/location_.png" alt="Location" />
+        <div>Eldoret</div>
+      </div>
+      <div style={priceStyle}>KES 2,400/L</div>
+      <div style={timePostedStyle}>
+        <img width={17} height={17} src="/images/clock.png" alt="Clock" />
+        <div>Posted 4h ago</div>
+      </div>
+      <div style={productActionsStyle}>
+        <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/message.png" alt="Share" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/share.png" alt="Save" />
+        <div style={startChatBtnStyle}>
+          <div style={startChatTextStyle}>Start Chat</div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Product 6 */}
+    <div style={productCardStyle}>
+      <img style={productImageStyle} src="/images/product6.png" alt="Lubricants" />
+      <div style={productTitleStyle}>Lubricants (200 Drums)</div>
+      <div style={companyInfoStyle}>
+        <a href="/profile" style={{ ...companyNameStyle, textDecoration: 'none' }}>OilTech Kenya</a>
+        <div style={verifiedBadgeStyle}>
+          <img src="/images/verified.png" width={13} height={13} alt="Verified" />
+        </div>
+      </div>
+      <div style={locationStyle}>
+        <img width={14} height={16} src="/images/location_.png" alt="Location" />
+        <div>Thika</div>
+      </div>
+      <div style={priceStyle}>KES 5,200/drum</div>
+      <div style={timePostedStyle}>
+        <img width={17} height={17} src="/images/clock.png" alt="Clock" />
+        <div>Posted 5h ago</div>
+      </div>
+      <div style={productActionsStyle}>
+        <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/message.png" alt="Share" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/share.png" alt="Save" />
+        <div style={startChatBtnStyle}>
+          <div style={startChatTextStyle}>Start Chat</div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Product 7 */}
+    <div style={productCardStyle}>
+      <img style={productImageStyle} src="/images/product7.png" alt="Petrol" />
+      <div style={productTitleStyle}>Petrol (10,000L Min.)</div>
+      <div style={companyInfoStyle}>
+        <a href="/profile" style={{ ...companyNameStyle, textDecoration: 'none' }}>Prime Fuels</a>
+        <div style={verifiedBadgeStyle}>
+          <img src="/images/verified.png" width={13} height={13} alt="Verified" />
+        </div>
+      </div>
+      <div style={locationStyle}>
+        <img width={14} height={16} src="/images/location_.png" alt="Location" />
+        <div>Machakos</div>
+      </div>
+      <div style={priceStyle}>KES 195/litre</div>
+      <div style={timePostedStyle}>
+        <img width={17} height={17} src="/images/clock.png" alt="Clock" />
+        <div>Posted 6h ago</div>
+      </div>
+      <div style={productActionsStyle}>
+        <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/message.png" alt="Share" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/share.png" alt="Save" />
+        <div style={startChatBtnStyle}>
+          <div style={startChatTextStyle}>Start Chat</div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Product 8 */}
+    <div style={productCardStyle}>
+      <img style={productImageStyle} src="/images/product8.png" alt="Batteries" />
+      <div style={productTitleStyle}>Solar Batteries (50 Units)</div>
+      <div style={companyInfoStyle}>
+        <a href="/profile" style={{ ...companyNameStyle, textDecoration: 'none' }}>PowerStore Kenya</a>
+        <div style={verifiedBadgeStyle}>
+          <img src="/images/verified.png" width={13} height={13} alt="Verified" />
+        </div>
+      </div>
+      <div style={locationStyle}>
+        <img width={14} height={16} src="/images/location_.png" alt="Location" />
+        <div>Kitui</div>
+      </div>
+      <div style={priceStyle}>KES 12,000/unit</div>
+      <div style={timePostedStyle}>
+        <img width={17} height={17} src="/images/clock.png" alt="Clock" />
+        <div>Posted 7h ago</div>
+      </div>
+      <div style={productActionsStyle}>
+        <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/message.png" alt="Share" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/share.png" alt="Save" />
+        <div style={startChatBtnStyle}>
+          <div style={startChatTextStyle}>Start Chat</div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Row 3 */}
+    {/* Product 9 */}
+    <div style={productCardStyle}>
+      <img style={productImageStyle} src="/images/product1.png" alt="Diesel Generators" />
+      <div style={productTitleStyle}>Diesel Generators (10 Units)</div>
+      <div style={companyInfoStyle}>
+        <a href="/profile" style={{ ...companyNameStyle, textDecoration: 'none' }}>GenPower Ltd</a>
+        <div style={verifiedBadgeStyle}>
+          <img src="/images/verified.png" width={13} height={13} alt="Verified" />
+        </div>
+      </div>
+      <div style={locationStyle}>
+        <img width={14} height={16} src="/images/location_.png" alt="Location" />
+        <div>Meru</div>
+      </div>
+      <div style={priceStyle}>KES 350,000/unit</div>
+      <div style={timePostedStyle}>
+        <img width={17} height={17} src="/images/clock.png" alt="Clock" />
+        <div>Posted 8h ago</div>
+      </div>
+      <div style={productActionsStyle}>
+        <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/message.png" alt="Share" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/share.png" alt="Save" />
+        <div style={startChatBtnStyle}>
+          <div style={startChatTextStyle}>Start Chat</div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Product 10 */}
+    <div style={productCardStyle}>
+      <img style={productImageStyle} src="/images/product2.png" alt="Ethanol" />
+      <div style={productTitleStyle}>Ethanol (20,000L)</div>
+      <div style={companyInfoStyle}>
+        <a href="/profile" style={{ ...companyNameStyle, textDecoration: 'none' }}>EcoFuels Africa</a>
+        <div style={verifiedBadgeStyle}>
+          <img src="/images/verified.png" width={13} height={13} alt="Verified" />
+        </div>
+      </div>
+      <div style={locationStyle}>
+        <img width={14} height={16} src="/images/location_.png" alt="Location" />
+        <div>Kisii</div>
+      </div>
+      <div style={priceStyle}>KES 150/litre</div>
+      <div style={timePostedStyle}>
+        <img width={17} height={17} src="/images/clock.png" alt="Clock" />
+        <div>Posted 9h ago</div>
+      </div>
+      <div style={productActionsStyle}>
+        <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/message.png" alt="Share" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/share.png" alt="Save" />
+        <div style={startChatBtnStyle}>
+          <div style={startChatTextStyle}>Start Chat</div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Product 11 */}
+    <div style={productCardStyle}>
+      <img style={productImageStyle} src="/images/product3.png" alt="LPG Gas" />
+      <div style={productTitleStyle}>LPG Gas (100 Cylinders)</div>
+      <div style={companyInfoStyle}>
+        <a href="/profile" style={{ ...companyNameStyle, textDecoration: 'none' }}>GasConnect Ltd</a>
+        <div style={verifiedBadgeStyle}>
+          <img src="/images/verified.png" width={13} height={13} alt="Verified" />
+        </div>
+      </div>
+      <div style={locationStyle}>
+        <img width={14} height={16} src="/images/location_.png" alt="Location" />
+        <div>Embu</div>
+      </div>
+      <div style={priceStyle}>KES 2,800/cylinder</div>
+      <div style={timePostedStyle}>
+        <img width={17} height={17} src="/images/clock.png" alt="Clock" />
+        <div>Posted 10h ago</div>
+      </div>
+      <div style={productActionsStyle}>
+        <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/message.png" alt="Share" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/share.png" alt="Save" />
+        <div style={startChatBtnStyle}>
+          <div style={startChatTextStyle}>Start Chat</div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Product 12 */}
+    <div style={productCardStyle}>
+      <img style={productImageStyle} src="/images/product4.png" alt="Wind Turbines" />
+      <div style={productTitleStyle}>Wind Turbines (5 Units)</div>
+      <div style={companyInfoStyle}>
+        <a href="/profile" style={{ ...companyNameStyle, textDecoration: 'none' }}>RenewPower Solutions</a>
+        <div style={verifiedBadgeStyle}>
+          <img src="/images/verified.png" width={13} height={13} alt="Verified" />
+        </div>
+      </div>
+      <div style={locationStyle}>
+        <img width={14} height={16} src="/images/location_.png" alt="Location" />
+        <div>Nyeri</div>
+      </div>
+      <div style={priceStyle}>KES 1.2M/unit</div>
+      <div style={timePostedStyle}>
+        <img width={17} height={17} src="/images/clock.png" alt="Clock" />
+        <div>Posted 12h ago</div>
+      </div>
+      <div style={productActionsStyle}>
+        <img width="18.3px" height="17.1px" src="/images/like.png" alt="Like" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/message.png" alt="Share" />
+        <img style={{marginLeft: '18px'}} width="20px" height="20px" src="/images/share.png" alt="Save" />
+        <div style={startChatBtnStyle}>
+          <div style={startChatTextStyle}>Start Chat</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      {/* Ad Banner Section - Fixed Version */}
+<div style={{ 
+  position: 'relative', 
+  width: '1312px', 
+  height: '243px', 
+  margin: '70px auto 0', // Center the banner
+  borderRadius: '10px', 
+  overflow: 'hidden',
+}}>
+  {/* Ad Slides Container */}
+  <div 
+    style={{ 
+      position: 'relative', 
+      width: '100%', 
+      height: '100%',
+    }}
+    onMouseEnter={() => clearInterval(adSliderInterval)}
+    onMouseLeave={() => {
+      const interval = setInterval(() => {
+        setCurrentAdIndex(prev => (prev + 1) % 4);
+      }, 4000);
+      setAdSliderInterval(interval);
+    }}
+  >
+    {/* Ad Label - Positioned absolutely at top right */}
+    <div style={{
+      position: 'absolute',
+      top: '10px',
+      right: '37px',
+      zIndex: 60,
+      display: 'flex', 
+      justifyContent: 'space-between', 
+      alignItems: 'end', 
+      gap: '6px', 
+      width: '41px', 
+      height: '18px'
+    }}>
+      <div style={{
+        fontFamily: '"Inter", sans-serif', 
+        fontSize: '15px', 
+        minWidth: '18px', 
+        whiteSpace: 'nowrap', 
+        color: 'rgba(255,255,255,1)', 
+        lineHeight: '100%', 
+        fontWeight: 500
+      }}>
+        ad
+      </div>
+      <img width="19px" height="16px" src="/images/X.png" alt="Close" />
+    </div>
+    
+    {/* Slide 1 */}
+    <img 
+      src="/images/slider5.png" 
+      alt="Ad 1" 
+      style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        opacity: currentAdIndex === 0 ? 1 : 0,
+        transition: 'opacity 1s ease-in-out'
+      }}
+    />
+    {/* Slide 2 */}
+    <img 
+      src="/images/slider6.png" 
+      alt="Ad 2" 
+      style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        opacity: currentAdIndex === 1 ? 1 : 0,
+        transition: 'opacity 1s ease-in-out'
+      }}
+    />
+    {/* Slide 3 */}
+    <img 
+      src="/images/slider7.png" 
+      alt="Ad 3" 
+      style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        opacity: currentAdIndex === 2 ? 1 : 0,
+        transition: 'opacity 1s ease-in-out'
+      }}
+    />
+    {/* Slide 4 */}
+    <img 
+      src="/images/slider4.png" 
+      alt="Ad 4" 
+      style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        opacity: currentAdIndex === 3 ? 1 : 0,
+        transition: 'opacity 1s ease-in-out'
+      }}
+    />
+  </div>
+</div>
 
       {/* Industry Updates Section */}
       <div className={styles.industryUpdates}>
@@ -1103,44 +1297,47 @@ const Loggedin = () => {
       <div className={styles.footer}>
         {/* Top Footer Content */}
         <div className={styles.footerContent}>
-          {/* Logo */}
-          <Link to="">
-            <img className={styles.logo} src="/images/logo_.png" alt="Petropal Logo" />
-          </Link>
-          
-          {/* Navigation Links */}
-          <button
-            onClick={() => setShowDownloadModal(true)}
-            className={styles.footerLinks}
-          >
-            Download App
-          </button>
+  {/* Logo */}
+  <Link to="">
+    <img className={styles.logo} src="/images/logo_.png" alt="Petropal Logo" />
+  </Link>
 
-          <Link 
-            to="/about"
-            onClick={() => window.scrollTo(0, 0)}
-            className={styles.footerLinks}
-          >
-            About Us
-          </Link>
-          
-          <button
-            onClick={() => setShowContactModal(true)}
-            className={styles.footerLinks}
-          >
-            Contact Us
-          </button>
-          
-          <a href="#" className={styles.footerLinks}>Help Center</a>
-          
-          {/* Social Icons */}
-          <div className={styles.socialIcons}>
-            <img width="26px" height="25.9px" src="/images/facebook.png" alt="Facebook" />
-            <img width="27px" height="27px" src="/images/Twitter.png" alt="Twitter" />
-            <img width="28px" height="25px" src="/images/Linkedin.png" alt="LinkedIn" />
-            <img width="26px" height="26px" src="/images/Instagram.png" alt="Instagram" />
-          </div>
-        </div>
+  {/* Navigation Links */}
+  <div className={styles.footerNav}>
+    <button
+      onClick={() => setShowDownloadModal(true)}
+      className={styles.footerLinks}
+    >
+      Download App
+    </button>
+
+    <Link 
+      to="/about"
+      onClick={() => window.scrollTo(0, 0)}
+      className={styles.footerLinks}
+    >
+      About Us
+    </Link>
+
+    <button
+      onClick={() => setShowContactModal(true)}
+      className={styles.footerLinks}
+    >
+      Contact Us
+    </button>
+
+    <a href="#" className={styles.footerLinks}>Help Center</a>
+  </div>
+
+  {/* Social Icons */}
+  <div className={styles.socialIcons}>
+    <img width="26px" height="25.9px" src="/images/facebook.png" alt="Facebook" />
+    <img width="27px" height="27px" src="/images/Twitter.png" alt="Twitter" />
+    <img width="28px" height="25px" src="/images/Linkedin.png" alt="LinkedIn" />
+    <img width="26px" height="26px" src="/images/Instagram.png" alt="Instagram" />
+  </div>
+</div>
+
         
         {/* Footer Bottom */}
         <div className={styles.footerBottom}>

@@ -17,7 +17,7 @@ import Listings from './Listings';
 import Industry from './Industry';
 import About from './About';
 import Analytics from './Analytics';
-import './App.css';
+import './App.module.css';
 import { ReactElement } from 'react';
 
 const isAuthenticated = () => {

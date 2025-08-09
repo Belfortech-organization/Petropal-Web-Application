@@ -526,3 +526,17 @@ body {
   cursor: pointer;
   white-space: nowrap;
 }
+
+:global(html),
+:global(body),
+:global(#root) {
+  overflow-x: hidden !important;  
+  overflow-y: auto !important;
+  height: auto !important;
+}
+
+:global(#root > div) {
+  overflow-x: hidden !important;  
+  overflow-y: auto !important;
+  height: auto !important;
+}
