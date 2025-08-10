@@ -234,7 +234,7 @@ const AdCreationModal: React.FC<AdCreationModalProps> = ({ onClose, onUploadMedi
               width: '36px',
               height: '36px'
             }}>
-              <img width="24px" height="26px" src="/images/arrow-right.png" alt="Arrow" />
+              <img width="24px" height="26px" src="/images/arrowright.png" alt="Arrow" />
             </div>
           </div>
         </div>

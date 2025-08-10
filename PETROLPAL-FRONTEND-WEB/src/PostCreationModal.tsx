@@ -53,7 +53,7 @@ const PostCreationModal: React.FC<PostCreationModalProps> = ({ onClose, onFileSe
       }} onClick={e => e.stopPropagation()}>
         {/* Header */}
         <div style={{
-          width: '68%',
+          width: '100%',
           height: '85px',
           backgroundColor: 'rgba(217,217,217,0.46)',
           display: 'flex',

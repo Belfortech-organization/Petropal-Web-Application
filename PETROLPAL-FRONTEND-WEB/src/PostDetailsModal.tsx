@@ -380,7 +380,7 @@ const PostDetailsModal: React.FC<PostDetailsModalProps> = ({ image, onClose, onP
                     marginBottom: '20px',
                     animation: 'slideDown 0.4s ease-out',
                     borderLeft: '3px solid rgba(1,47,107,0.5)',
-                    paddingLeft: '15px',
+                    paddingLeft: '10px',
                     borderRadius: '4px'
                   }}
                 >
@@ -388,7 +388,6 @@ const PostDetailsModal: React.FC<PostDetailsModalProps> = ({ image, onClose, onP
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'start',
-                    gap: '20px',
                     width: '100%'
                   }}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>

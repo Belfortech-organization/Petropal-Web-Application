@@ -34,7 +34,7 @@ const PostUploadModal: React.FC<PostUploadModalProps> = ({ image, onClose, onNex
       }} onClick={e => e.stopPropagation()}>
         {/* Header */}
         <div style={{
-          width: '95%',
+          width: '100%',
           height: '56px',
           backgroundColor: 'rgba(217,217,217,0.46)',
           display: 'flex',
