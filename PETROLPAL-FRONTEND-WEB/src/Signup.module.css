@@ -1,9 +1,5 @@
-/* Signin.module.css */
+/* Signup.module.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
-.container {
-  box-sizing: border-box;
-}
 
 .page {
   width: 100%;
@@ -19,10 +15,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  padding-top: 40px;
-  padding-bottom: 160px;
-  position: relative;
+  gap: 10px;
+  padding: 50px 0;
+  padding-bottom: 200px;
 }
 
 .headerLogo {
@@ -39,12 +34,23 @@
   font-size: 28px;
   font-weight: 600;
   color: white;
-  white-space: nowrap;
 }
 
-.loginCard {
+.headerSubtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+}
+
+.headerSubtitle a {
+  text-decoration: underline;
+  cursor: pointer;
+  color: white;
+}
+
+.signupCard {
   position: absolute;
-  top: 170px;
+  top: 150px;
   left: 50%;
   transform: translateX(-50%);
   width: 420px;
@@ -55,42 +61,6 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-}
-
-.googleBtn {
-  width: 100%;
-  height: 45px;
-  border: 2px solid rgb(189, 189, 189);
-  border-radius: 8px;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-
-.divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 15px;
-  gap: 8px;
-}
-
-.dividerText {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.4);
-  white-space: nowrap;
-}
-
-.line {
-  flex-grow: 1;
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: none;
 }
 
 .inputField {
@@ -107,41 +77,10 @@
 
 .passwordField {
   justify-content: space-between;
-  padding-left: 12px;
   padding-right: 12px;
 }
 
-.optionsRow {
-  margin-top: 12px;
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.checkbox {
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgb(151, 151, 151);
-  border-radius: 4px;
-  background-color: white;
-}
-
-.rememberText {
-  margin-left: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.forgotPassword {
-  margin-left: auto;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(1, 47, 107, 1);
-  cursor: pointer;
-}
-
-.loginBtn {
+.signupBtn {
   width: 100%;
   height: 45px;
   margin-top: 20px;
@@ -154,31 +93,70 @@
   transition: all 0.3s ease;
 }
 
-.loginBtn:hover {
+.signupBtn:hover {
   background-color: rgba(1, 47, 107, 0.8);
   transform: scale(1.02);
 }
 
-.loginBtnText {
+.signupBtnText {
   font-size: 16px;
   font-weight: 500;
   color: white;
-  white-space: nowrap;
 }
 
-.signupText {
-  margin-top: 20px;
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0;
+  gap: 8px;
+}
+
+.dividerText {
   font-size: 14px;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.5);
-  white-space: nowrap;
+  color: rgba(0, 0, 0, 0.4);
 }
 
-.signupLink {
-  font-weight: 600;
-  color: rgba(1, 47, 107, 1);
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.googleBtn {
+  width: 100%;
+  height: 45px;
+  border: 2px solid rgb(189, 189, 189);
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
-  text-decoration: none;
+  margin-top: 10px;
+}
+
+.googleBtnText {
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+.termsText {
+  margin-top: 10px;
+  font-size: 12px;
+  width: 100%;
+  color: rgba(1, 47, 107, 1);
+  line-height: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.termsText span {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .textInput,
@@ -195,9 +173,13 @@
 .errorMessage {
   color: red;
   text-align: center;
+  width: 100%;
 }
 
-.googleBtnText {
-  font-size: 16px;
-  font-weight: 600;
+.inlineBlock {
+  display: inline-block;
+}
+
+.passwordToggle {
+  cursor: pointer;
 }
