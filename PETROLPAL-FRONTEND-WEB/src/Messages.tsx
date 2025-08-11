@@ -50,7 +50,7 @@ const Messages = () => {
           </div>
 
           <div className={styles.sidebarMessages}>
-            <div 
+            <div
               className={`${styles.messageContainer} ${activeChat === 'solarwave' ? styles.active : ''} ${hoveredMessage === 'solarwave' ? styles.hovered : ''}`}
               onClick={() => showChat('solarwave')}
               onMouseEnter={() => setHoveredMessage('solarwave')}
@@ -75,7 +75,7 @@ const Messages = () => {
               </div>
             </div>
 
-            <div 
+            <div
               className={`${styles.messageContainer} ${activeChat === 'exxon' ? styles.active : ''} ${hoveredMessage === 'exxon' ? styles.hovered : ''}`}
               onClick={() => showChat('exxon')}
               onMouseEnter={() => setHoveredMessage('exxon')}
@@ -100,7 +100,7 @@ const Messages = () => {
               </div>
             </div>
 
-            <div 
+            <div
               className={`${styles.messageContainer} ${activeChat === 'hass' ? styles.active : ''} ${hoveredMessage === 'hass' ? styles.hovered : ''}`}
               onClick={() => showChat('hass')}
               onMouseEnter={() => setHoveredMessage('hass')}
@@ -125,7 +125,7 @@ const Messages = () => {
               </div>
             </div>
 
-            <div 
+            <div
               className={`${styles.messageContainer} ${unreadMessages.includes('dalbit1') ? styles.unread : ''} ${activeChat === 'dalbit1' ? styles.active : ''} ${hoveredMessage === 'dalbit1' ? styles.hovered : ''}`}
               onClick={() => showChat('dalbit1')}
               onMouseEnter={() => setHoveredMessage('dalbit1')}
@@ -153,7 +153,7 @@ const Messages = () => {
               </div>
             </div>
 
-            <div 
+            <div
               className={`${styles.messageContainer} ${unreadMessages.includes('dalbit2') ? styles.unread : ''} ${activeChat === 'dalbit2' ? styles.active : ''} ${hoveredMessage === 'dalbit2' ? styles.hovered : ''}`}
               onClick={() => showChat('dalbit2')}
               onMouseEnter={() => setHoveredMessage('dalbit2')}
@@ -224,17 +224,17 @@ const Messages = () => {
                       <span>Start your conversation</span>
                     </div>
                     <div className={styles.messageDay}>Monday</div>
-                    
+
                     <div className={`${styles.messageWrapper} ${styles.sent}`}>
                       <div className={`${styles.messageBubble} ${styles.sent}`}>Hi, l'm interested in buying diesel. l saw your listing at KES 183/litre</div>
                       <div className={styles.sentTime}>4:23PM</div>
                     </div>
-                    
+
                     <div className={styles.messageWrapper}>
                       <div className={`${styles.messageBubble} ${styles.received}`}>Hello! We have several options available. What quantity are you looking for?</div>
                       <div className={styles.receivedTime}>1 min ago</div>
                     </div>
-                    
+
                     <div className={`${styles.messageWrapper} ${styles.sent}`}>
                       <div className={`${styles.messageBubble} ${styles.sent}`}>I need about 10,000 liters per week</div>
                       <div className={styles.sentTime}>4:25PM</div>
@@ -271,17 +271,17 @@ const Messages = () => {
                       <span>Start your conversation</span>
                     </div>
                     <div className={styles.messageDay}>Monday</div>
-                    
+
                     <div className={`${styles.messageWrapper} ${styles.sent}`}>
                       <div className={`${styles.messageBubble} ${styles.sent}`}>Hi, l'm interested in buying diesel. l saw your listing at KES 183/litre</div>
                       <div className={styles.sentTime}>4:23PM</div>
                     </div>
-                    
+
                     <div className={styles.messageWrapper}>
                       <div className={`${styles.messageBubble} ${styles.received}`}>Hello! We have several options available. What quantity are you looking for?</div>
                       <div className={styles.receivedTime}>1 min ago</div>
                     </div>
-                    
+
                     <div className={`${styles.messageWrapper} ${styles.sent}`}>
                       <div className={`${styles.messageBubble} ${styles.sent}`}>I need about 10,000 liters per week</div>
                       <div className={styles.sentTime}>4:25PM</div>
@@ -318,17 +318,17 @@ const Messages = () => {
                       <span>Start your conversation</span>
                     </div>
                     <div className={styles.messageDay}>Monday</div>
-                    
+
                     <div className={`${styles.messageWrapper} ${styles.sent}`}>
                       <div className={`${styles.messageBubble} ${styles.sent}`}>Hi, l'm interested in buying diesel. l saw your listing at KES 183/litre</div>
                       <div className={styles.sentTime}>4:23PM</div>
                     </div>
-                    
+
                     <div className={styles.messageWrapper}>
                       <div className={`${styles.messageBubble} ${styles.received}`}>Hello! We have several options available. What quantity are you looking for?</div>
                       <div className={styles.receivedTime}>1 min ago</div>
                     </div>
-                    
+
                     <div className={`${styles.messageWrapper} ${styles.sent}`}>
                       <div className={`${styles.messageBubble} ${styles.sent}`}>I need about 10,000 liters per week</div>
                       <div className={styles.sentTime}>4:25PM</div>
@@ -365,17 +365,17 @@ const Messages = () => {
                       <span>Start your conversation</span>
                     </div>
                     <div className={styles.messageDay}>Monday</div>
-                    
+
                     <div className={`${styles.messageWrapper} ${styles.sent}`}>
                       <div className={`${styles.messageBubble} ${styles.sent}`}>Hi, l'm interested in buying diesel. l saw your listing at KES 183/litre</div>
                       <div className={styles.sentTime}>4:23PM</div>
                     </div>
-                    
+
                     <div className={styles.messageWrapper}>
                       <div className={`${styles.messageBubble} ${styles.received}`}>Hello! We have several options available. What quantity are you looking for?</div>
                       <div className={styles.receivedTime}>1 min ago</div>
                     </div>
-                    
+
                     <div className={`${styles.messageWrapper} ${styles.sent}`}>
                       <div className={`${styles.messageBubble} ${styles.sent}`}>I need about 10,000 liters per week</div>
                       <div className={styles.sentTime}>4:25PM</div>
@@ -412,17 +412,17 @@ const Messages = () => {
                       <span>Start your conversation</span>
                     </div>
                     <div className={styles.messageDay}>Monday</div>
-                    
+
                     <div className={`${styles.messageWrapper} ${styles.sent}`}>
                       <div className={`${styles.messageBubble} ${styles.sent}`}>Hi, l'm interested in buying diesel. l saw your listing at KES 183/litre</div>
                       <div className={styles.sentTime}>4:23PM</div>
                     </div>
-                    
+
                     <div className={styles.messageWrapper}>
                       <div className={`${styles.messageBubble} ${styles.received}`}>Hello! We have several options available. What quantity are you looking for?</div>
                       <div className={styles.receivedTime}>1 min ago</div>
                     </div>
-                    
+
                     <div className={`${styles.messageWrapper} ${styles.sent}`}>
                       <div className={`${styles.messageBubble} ${styles.sent}`}>I need about 10,000 liters per week</div>
                       <div className={styles.sentTime}>4:25PM</div>

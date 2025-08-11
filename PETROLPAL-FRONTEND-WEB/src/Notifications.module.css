@@ -2,31 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lato:wght@500&family=Roboto:wght@400;500&display=swap');
 
 .notificationsContainer {
-  font-family: 'Inter', sans-serif;
-  background-color: #f4f4f4;
-  width: 100vw; /* span full viewport width */
-  margin: 0;
-  padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f4f4;
+    width: 100vw;
+    /* span full viewport width */
+    margin: 0;
+    padding: 0;
 }
 
 :global(html),
 :global(body) {
-  margin: 0;
-  padding: 0;
-  width: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 
 /* Header Section */
 .navBar {
-  width: 100%;
-  height: 100px;
-  background-color: rgba(1,47,107,1);
-  padding: 20px 45px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(1, 47, 107, 1);
+    padding: 20px 45px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navLinks {
@@ -52,62 +53,62 @@
 
 /* Logo */
 .logo {
-  width: 138px;
-  height: 40px;
+    width: 138px;
+    height: 40px;
 }
 
 /* Category Dropdown */
 .categoryDropdown {
-  margin-left: 37.2px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+    margin-left: 37.2px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .categoryText {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  text-align: center;
-  width: 76px;
-  color: white;
-  line-height: 17px;
-  letter-spacing: -0.01em;
-  font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    text-align: center;
+    width: 76px;
+    color: white;
+    line-height: 17px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
 }
 
 /* Search Bar */
 .searchBar {
-  margin-left: 35.8px;
-  display: flex;
-  align-items: center;
-  background: white;
-  border-radius: 20px;
-  border: 3px solid rgb(255,140,0);
-  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-  height: 47px;
-  width: 593px;
-  position: relative;
+    margin-left: 35.8px;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    border: 3px solid rgb(255, 140, 0);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 47px;
+    width: 593px;
+    position: relative;
 }
 
 .searchSection {
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
 }
 
 .searchIcon {
-  margin-left: 16px;
-  width: 14.6px;
-  height: 14.6px;
+    margin-left: 16px;
+    width: 14.6px;
+    height: 14.6px;
 }
 
 .searchPlaceholder {
-  margin-left: 18.4px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: rgba(1,47,107,0.5);
-  font-weight: 600;
-  white-space: nowrap;
+    margin-left: 18.4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(1, 47, 107, 0.5);
+    font-weight: 600;
+    white-space: nowrap;
 }
 
 .searchDivider {
@@ -120,21 +121,21 @@
 }
 
 .locationSection {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .locationIcon {
-  width: 23px;
-  height: 23px;
+    width: 23px;
+    height: 23px;
 }
 
 .locationText {
-  margin-left: 15px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: rgba(1,47,107,0.5);
-  font-weight: 600;
+    margin-left: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(1, 47, 107, 0.5);
+    font-weight: 600;
 }
 
 .searchButton {
@@ -151,203 +152,203 @@
 
 /* Language and Profile Section */
 .userSection {
-  margin-left: 30px;
-  display: flex;
-  align-items: center;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
 }
 
 .languageSelector {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .languageText {
-  margin-left: 12px;
-  font-family: 'Lato', sans-serif;
-  font-size: 18px;
-  color: white;
-  font-weight: 500;
+    margin-left: 12px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
 }
 
 .dropdownIcon {
-  margin-left: 12px;
-  width: 11px;
-  height: 9px;
+    margin-left: 12px;
+    width: 11px;
+    height: 9px;
 }
 
 .profileSection {
-  margin-left: 36px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  text-decoration: none;
+    margin-left: 36px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .profileName {
-  font-family: 'Inter', sans-serif;
-  font-size: 20px;
-  color: white;
-  font-weight: 500;
-  margin-right: 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: 500;
+    margin-right: 30px;
 }
 
 .profilePic {
-  width: 61px;
-  height: 61px;
-  border-radius: 50%;
-  object-fit: cover;
+    width: 61px;
+    height: 61px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 /* Notification Title Section */
 .notificationHeader {
-  display: flex;
-  align-items: center;
-  padding: 30px 0;
-  background-color: #f4f4f4;
-  justify-content: center;
-  position: relative;
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+    background-color: #f4f4f4;
+    justify-content: center;
+    position: relative;
 }
 
 .backButton {
-  position: absolute;
-  left: 45px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  display: flex;
-  align-items: center;
+    position: absolute;
+    left: 45px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 .notificationTitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 36px;
-  color: rgba(0,0,0,1);
-  line-height: 125%;
-  letter-spacing: -0.4px;
-  font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    color: rgba(0, 0, 0, 1);
+    line-height: 125%;
+    letter-spacing: -0.4px;
+    font-weight: 500;
 }
 
 /* Notification Content */
 .notificationContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 45px 60px;
-  height: calc(100vh - 240px);
-  overflow-y: auto;
-  box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 45px 60px;
+    height: calc(100vh - 240px);
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .notificationCard {
-  width: 1149px;
-  height: 155px;
-  border-radius: 10px;
-  box-shadow: 0px 30px 40px 0px rgba(141, 141, 141, 0.342);
-  background-color: rgba(255,255,255,1);
-  display: flex;
-  align-items: center;
-  padding: 0 30px;
-  margin-bottom: 20px;
-  flex-shrink: 0;
+    width: 1149px;
+    height: 155px;
+    border-radius: 10px;
+    box-shadow: 0px 30px 40px 0px rgba(141, 141, 141, 0.342);
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
 }
 
 .notificationContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 6px;
-  margin-left: 30px;
-  flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 6px;
+    margin-left: 30px;
+    flex: 1;
 }
 
 .notificationTitleText {
-  font-family: 'Inter', sans-serif;
-  font-size: 21px;
-  color: rgba(18,18,18,1);
-  line-height: 18.5px;
-  letter-spacing: -0.01em;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 21px;
+    color: rgba(18, 18, 18, 1);
+    line-height: 18.5px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
 }
 
 .notificationDescription {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  color: rgba(0,0,0,0.5);
-  line-height: 18.4px;
-  font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.5);
+    line-height: 18.4px;
+    font-weight: 600;
 }
 
 .notificationTime {
-  font-size: 14px;
-  font-weight: 500;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 /* Special card styles */
 .highlightedCard {
-  box-shadow: 0px 30px 40px 0px rgba(212,212,212,0.35);
-  background-color: rgba(241,241,255,1);
+    box-shadow: 0px 30px 40px 0px rgba(212, 212, 212, 0.35);
+    background-color: rgba(241, 241, 255, 1);
 }
 
 .profileImage {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .verifiedBadge {
-  width: 18px;
-  height: 18px;
-  margin-left: 8px;
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
 }
 
 .actionButton {
-  width: 199px;
-  height: 43px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  margin-left: auto;
+    width: 199px;
+    height: 43px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: auto;
 }
 
 .followButton {
-  background-color: rgba(255,140,0,1);
+    background-color: rgba(255, 140, 0, 1);
 }
 
 .viewProfileButton {
-  border: 2px solid rgb(255,140,0);
+    border: 2px solid rgb(255, 140, 0);
 }
 
 .buttonText {
-  font-family: 'Inter', sans-serif;
-  font-size: 21px;
-  white-space: nowrap;
-  font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 21px;
+    white-space: nowrap;
+    font-weight: 600;
 }
 
 .followButtonText {
-  color: rgba(255,255,255,1);
+    color: rgba(255, 255, 255, 1);
 }
 
 .viewProfileButtonText {
-  color: rgba(255,140,0,1);
+    color: rgba(255, 140, 0, 1);
 }
 
 .profileImage {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
 .notificationCard.highlightedCard .profileImage:last-child {
-  border-radius: 10px;
+    border-radius: 10px;
 }

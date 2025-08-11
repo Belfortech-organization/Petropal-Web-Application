@@ -464,16 +464,16 @@ const Industry = () => {
             Industry Updates
           </div>
         </div>
-        
+
         {/* News Grid */}
         <div className={styles.newsGrid}>
           {/* News Cards 1-6 */}
           {[1, 2, 3, 4, 5, 6].map((card) => (
             <div className={styles.newsCardContainer} key={card}>
-              <img 
-                className={styles.newsCardImage} 
-                src={`/images/update${card % 2 === 0 ? '2' : '1'}.png`} 
-                alt="News" 
+              <img
+                className={styles.newsCardImage}
+                src={`/images/update${card % 2 === 0 ? '2' : '1'}.png`}
+                alt="News"
               />
               <div className={styles.newsCardTitle}>
                 {[
@@ -485,68 +485,68 @@ const Industry = () => {
                   "Industry Awards 2023"
                 ][card - 1]}
               </div>
-<div className={styles.newsCardMeta}>
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      gap: "18px",
-      width: "170px",
-      height: "48px",
-    }}
-  >
-    <div
-      style={{
-        backgroundImage: "url('/images/logo.png ')",
-        backgroundSize: "cover",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "48px",
-        height: "48px",
-      }}
-    >
-      <div
-        style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: "12px",
-          whiteSpace: "nowrap",
-          color: "rgba(0,0,0,1)",
-          lineHeight: "18.5px",
-          letterSpacing: "-0.01em",
-          fontWeight: "400",
-        }}
-      >
-        Logo
-      </div>
-    </div>
-    <div
-      style={{
-        fontFamily: "'Inter', sans-serif",
-        fontSize: "20px",
-        minWidth: "104px",
-        whiteSpace: "nowrap",
-        color: "rgba(1,47,107,1)",
-        lineHeight: "18.5px",
-        letterSpacing: "-0.01em",
-        fontWeight: "500",
-      }}
-    >
-      IntelliNews
-    </div>
-  </div>
-</div>
+              <div className={styles.newsCardMeta}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    gap: "18px",
+                    width: "170px",
+                    height: "48px",
+                  }}
+                >
+                  <div
+                    style={{
+                      backgroundImage: "url('/images/logo.png ')",
+                      backgroundSize: "cover",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      width: "48px",
+                      height: "48px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: "12px",
+                        whiteSpace: "nowrap",
+                        color: "rgba(0,0,0,1)",
+                        lineHeight: "18.5px",
+                        letterSpacing: "-0.01em",
+                        fontWeight: "400",
+                      }}
+                    >
+                      Logo
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "20px",
+                      minWidth: "104px",
+                      whiteSpace: "nowrap",
+                      color: "rgba(1,47,107,1)",
+                      lineHeight: "18.5px",
+                      letterSpacing: "-0.01em",
+                      fontWeight: "500",
+                    }}
+                  >
+                    IntelliNews
+                  </div>
+                </div>
+              </div>
 
-<div className={styles.newsCardTime}>
-  <img
-    className={styles.clockIcon}
-    src="/images/clock.png"
-    alt="Posted Time"
-  />
-  Posted {card}h ago
-</div>
+              <div className={styles.newsCardTime}>
+                <img
+                  className={styles.clockIcon}
+                  src="/images/clock.png"
+                  alt="Posted Time"
+                />
+                Posted {card}h ago
+              </div>
 
             </div>
           ))}
@@ -592,10 +592,10 @@ const Industry = () => {
           {/* News Cards 7-12 */}
           {[7, 8, 9, 10, 11, 12].map((card) => (
             <div className={styles.newsCardContainer} key={card}>
-              <img 
-                className={styles.newsCardImage} 
-                src={`/images/update${card % 2 === 0 ? '2' : '1'}.png`} 
-                alt="News" 
+              <img
+                className={styles.newsCardImage}
+                src={`/images/update${card % 2 === 0 ? '2' : '1'}.png`}
+                alt="News"
               />
               <div className={styles.newsCardTitle}>
                 {[
@@ -608,67 +608,67 @@ const Industry = () => {
                 ][card - 7]}
               </div>
               <div className={styles.newsCardMeta}>
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      gap: "18px",
-      width: "170px",
-      height: "48px",
-    }}
-  >
-    <div
-      style={{
-        backgroundImage: "url('/images/logo.png ')",
-        backgroundSize: "cover",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "48px",
-        height: "48px",
-      }}
-    >
-      <div
-        style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: "12px",
-          whiteSpace: "nowrap",
-          color: "rgba(0,0,0,1)",
-          lineHeight: "18.5px",
-          letterSpacing: "-0.01em",
-          fontWeight: "400",
-        }}
-      >
-        Logo
-      </div>
-    </div>
-    <div
-      style={{
-        fontFamily: "'Inter', sans-serif",
-        fontSize: "20px",
-        minWidth: "104px",
-        whiteSpace: "nowrap",
-        color: "rgba(1,47,107,1)",
-        lineHeight: "18.5px",
-        letterSpacing: "-0.01em",
-        fontWeight: "500",
-      }}
-    >
-      IntelliNews
-    </div>
-  </div>
-</div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    gap: "18px",
+                    width: "170px",
+                    height: "48px",
+                  }}
+                >
+                  <div
+                    style={{
+                      backgroundImage: "url('/images/logo.png ')",
+                      backgroundSize: "cover",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      width: "48px",
+                      height: "48px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: "12px",
+                        whiteSpace: "nowrap",
+                        color: "rgba(0,0,0,1)",
+                        lineHeight: "18.5px",
+                        letterSpacing: "-0.01em",
+                        fontWeight: "400",
+                      }}
+                    >
+                      Logo
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontSize: "20px",
+                      minWidth: "104px",
+                      whiteSpace: "nowrap",
+                      color: "rgba(1,47,107,1)",
+                      lineHeight: "18.5px",
+                      letterSpacing: "-0.01em",
+                      fontWeight: "500",
+                    }}
+                  >
+                    IntelliNews
+                  </div>
+                </div>
+              </div>
 
-<div className={styles.newsCardTime}>
-  <img
-    className={styles.clockIcon}
-    src="/images/clock.png"
-    alt="Posted Time"
-  />
-  Posted {card}h ago
-</div>
+              <div className={styles.newsCardTime}>
+                <img
+                  className={styles.clockIcon}
+                  src="/images/clock.png"
+                  alt="Posted Time"
+                />
+                Posted {card}h ago
+              </div>
 
             </div>
           ))}
@@ -717,7 +717,7 @@ const Industry = () => {
         <div className={styles.footerContent}>
           {/* Logo */}
           <Link to="/loggedin" className={styles.footerLogo}>
-            <img className={styles.logo} src="/images/logo_.png" alt="Petropal Logo" />
+            <img className={styles.logo} src="/images/logo_.png" alt="Petropal Logo" onClick={() => window.scrollTo(0, 0)} />
           </Link>
 
           {/* Navigation Links */}

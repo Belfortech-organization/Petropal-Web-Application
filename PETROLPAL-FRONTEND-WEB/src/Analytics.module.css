@@ -2,48 +2,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lato:wght@500&family=Roboto:wght@400;500&display=swap');
 
 :root {
-  --nav-height: 100px; /* easily adjust header height in one place */
+    --nav-height: 100px;
+    /* easily adjust header height in one place */
 }
 
 /* Reset + global scrolling */
 :global(html),
 :global(body),
 :global(#root) {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden; /* no horizontal scroll */
-  overflow-y: auto;   /* page scrolls vertically */
-  font-family: 'Inter', sans-serif;
-  background-color: #f4f4f4;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    /* no horizontal scroll */
+    overflow-y: auto;
+    /* page scrolls vertically */
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f4f4;
 }
 
 /* Container — NO own scroll */
 .container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh; /* allow full page height */
-  padding-top: var(--nav-height); /* push down content */
-  background-color: #f4f4f4;
-  box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    /* allow full page height */
+    padding-top: var(--nav-height);
+    /* push down content */
+    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
 /* Fixed header */
 .navBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--nav-height);
-  background-color: rgba(1,47,107,1);
-  padding: 20px 45px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000; /* stay above all content */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background-color: rgba(1, 47, 107, 1);
+    padding: 20px 45px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    /* stay above all content */
 }
 
 
@@ -70,62 +76,62 @@
 
 /* Logo */
 .logo {
-  width: 138px;
-  height: 40px;
+    width: 138px;
+    height: 40px;
 }
 
 /* Category Dropdown */
 .categoryDropdown {
-  margin-left: 37.2px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+    margin-left: 37.2px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .categoryText {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  text-align: center;
-  width: 76px;
-  color: white;
-  line-height: 17px;
-  letter-spacing: -0.01em;
-  font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    text-align: center;
+    width: 76px;
+    color: white;
+    line-height: 17px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
 }
 
 /* Search Bar */
 .searchBar {
-  margin-left: 35.8px;
-  display: flex;
-  align-items: center;
-  background: white;
-  border-radius: 20px;
-  border: 3px solid rgb(255,140,0);
-  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-  height: 47px;
-  width: 593px;
-  position: relative;
+    margin-left: 35.8px;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    border: 3px solid rgb(255, 140, 0);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 47px;
+    width: 593px;
+    position: relative;
 }
 
 .searchSection {
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
 }
 
 .searchIcon {
-  margin-left: 16px;
-  width: 14.6px;
-  height: 14.6px;
+    margin-left: 16px;
+    width: 14.6px;
+    height: 14.6px;
 }
 
 .searchPlaceholder {
-  margin-left: 18.4px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: rgba(1,47,107,0.5);
-  font-weight: 600;
-  white-space: nowrap;
+    margin-left: 18.4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(1, 47, 107, 0.5);
+    font-weight: 600;
+    white-space: nowrap;
 }
 
 .searchDivider {
@@ -138,21 +144,21 @@
 }
 
 .locationSection {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .locationIcon {
-  width: 23px;
-  height: 23px;
+    width: 23px;
+    height: 23px;
 }
 
 .locationText {
-  margin-left: 15px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: rgba(1,47,107,0.5);
-  font-weight: 600;
+    margin-left: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(1, 47, 107, 0.5);
+    font-weight: 600;
 }
 
 .searchButton {
@@ -169,495 +175,495 @@
 
 /* Language and Profile Section */
 .userSection {
-  margin-left: 30px;
-  display: flex;
-  align-items: center;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
 }
 
 .languageSelector {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .languageText {
-  margin-left: 12px;
-  font-family: 'Lato', sans-serif;
-  font-size: 18px;
-  color: white;
-  font-weight: 500;
+    margin-left: 12px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
 }
 
 .dropdownIcon {
-  margin-left: 12px;
-  width: 11px;
-  height: 9px;
+    margin-left: 12px;
+    width: 11px;
+    height: 9px;
 }
 
 .profileSection {
-  margin-left: 36px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  text-decoration: none;
+    margin-left: 36px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .profileName {
-  font-family: 'Inter', sans-serif;
-  font-size: 20px;
-  color: white;
-  font-weight: 500;
-  margin-right: 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: 500;
+    margin-right: 30px;
 }
 
 .profilePic {
-  width: 61px;
-  height: 61px;
-  border-radius: 50%;
-  object-fit: cover;
+    width: 61px;
+    height: 61px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .notificationHeader {
-  position: fixed;
-  top: 100px;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background-color: #f4f4f4;
-  display: flex;
-  align-items: center;
-  padding: 27px 0;
-  justify-content: center;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    padding: 27px 0;
+    justify-content: center;
 }
 
 .backButton {
-  position: absolute;
-  left: 45px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  display: flex;
-  align-items: center;
+    position: absolute;
+    left: 45px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 .notificationTitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 36px;
-  color: rgba(0, 0, 0, 1);
-  line-height: 125%;
-  letter-spacing: -0.4px;
-  font-weight: 500;
-  text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    color: rgba(0, 0, 0, 1);
+    line-height: 125%;
+    letter-spacing: -0.4px;
+    font-weight: 500;
+    text-align: center;
 }
 
 .scrollableContent {
-  margin-top: 180px;
-  height: calc(100vh - 180px);
-  overflow-y: auto;
+    margin-top: 180px;
+    height: calc(100vh - 180px);
+    overflow-y: auto;
 }
 
 .splitViewContainer {
-  display: flex;
-  width: 100%;
-  height: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 .leftContent {
-  flex: 1;
-  overflow-y: auto;
-  transition: all 0.3s ease;
-  padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    padding: 20px;
 }
 
 .leftContentWithDetail {
-  flex: 1;
+    flex: 1;
 }
 
 .rightContent {
-  width: 0;
-  overflow-y: auto;
-  transition: all 0.3s ease;
-  padding: 0;
+    width: 0;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    padding: 0;
 }
 
 .rightContentWithDetail {
-  width: 50%;
-  padding: 20px;
-  border-left: 1px solid #eee;
+    width: 50%;
+    padding: 20px;
+    border-left: 1px solid #eee;
 }
 
 .analyticsSubheaderContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  background-color: #f4f4f4;
-  padding: 0 0 20px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #f4f4f4;
+    padding: 0 0 20px 0;
 }
 
 .analyticsSubheader {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
-  width: 213px;
-  height: 93px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    width: 213px;
+    height: 93px;
 }
 
 .analyticsMainText {
-  font-family: 'Inter', sans-serif;
-  font-size: 21px;
-  color: rgba(18, 18, 18, 1);
-  line-height: 18.5px;
-  letter-spacing: -0.01em;
-  font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    font-size: 21px;
+    color: rgba(18, 18, 18, 1);
+    line-height: 18.5px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
 }
 
 .analyticsNumber {
-  font-family: 'Inter', sans-serif;
-  font-size: 21px;
-  color: rgba(18, 18, 18, 1);
-  line-height: 18.5px;
-  letter-spacing: -0.01em;
-  font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    font-size: 21px;
+    color: rgba(18, 18, 18, 1);
+    line-height: 18.5px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
 }
 
 .analyticsSubtext {
-  font-family: 'Inter', sans-serif;
-  font-size: 20px;
-  color: rgba(18, 18, 18, 0.5);
-  line-height: 18.5px;
-  letter-spacing: -0.01em;
-  font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    color: rgba(18, 18, 18, 0.5);
+    line-height: 18.5px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
 }
 
 .chartContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  background-color: #f4f4f4;
-  padding: 0px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #f4f4f4;
+    padding: 0px 0;
 }
 
 .topPostsContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  width: 100%;
-  padding: 0px 0;
-  background-color: #f4f4f4;
-  margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    padding: 0px 0;
+    background-color: #f4f4f4;
+    margin-bottom: 40px;
 }
 
 .verticalLayout {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 .topPostsHeader {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 1260px;
-  padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1260px;
+    padding: 0 20px;
 }
 
 .topPostsTitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 21px;
-  color: rgba(18, 18, 18, 1);
-  line-height: 18.5px;
-  letter-spacing: -0.01em;
-  font-weight: 500;
-  margin-bottom: 7px;
+    font-family: 'Inter', sans-serif;
+    font-size: 21px;
+    color: rgba(18, 18, 18, 1);
+    line-height: 18.5px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    margin-bottom: 7px;
 }
 
 .topPostsSubtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 17px;
-  color: rgba(18, 18, 18, 0.8);
-  line-height: 31px;
-  letter-spacing: -0.2px;
-  font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: rgba(18, 18, 18, 0.8);
+    line-height: 31px;
+    letter-spacing: -0.2px;
+    font-weight: 400;
 }
 
 .postsRow {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-  max-width: 1260px;
-  padding: 0 20px;
-  margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1260px;
+    padding: 0 20px;
+    margin-top: 28px;
 }
 
 .verticalLayout .postsRow {
-  flex-direction: column;
-  align-items: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .verticalLayout .postBox {
-  width: 100%;
-  max-width: 100%;
+    width: 100%;
+    max-width: 100%;
 }
 
 .postBox {
-  border-radius: 10px;
-  border: 2px solid black;
-  width: 100%;
-  max-width: 619px;
-  min-height: 234px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 10px;
-  background: #fff;
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 100%;
+    max-width: 619px;
+    min-height: 234px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    background: #fff;
 }
 
 .postContent {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: 7px;
-  width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 7px;
+    width: 100%;
 }
 
 .postLeft {
-  display: flex;
-  flex-direction: column;
-  gap: 19px;
-  width: 172px;
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    width: 172px;
 }
 
 .postLeftTitle {
-  margin-left: 2px;
-  font-family: 'Inter', sans-serif;
-  font-size: 19px;
-  white-space: nowrap;
-  color: rgba(18, 18, 18, 1);
-  line-height: 18.5px;
-  font-weight: 500;
+    margin-left: 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    white-space: nowrap;
+    color: rgba(18, 18, 18, 1);
+    line-height: 18.5px;
+    font-weight: 500;
 }
 
 .postRight {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 18px;
-  width: calc(100% - 190px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+    width: calc(100% - 190px);
 }
 
 .postRightTime {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  color: rgba(18, 18, 18, 0.8);
-  line-height: 31px;
-  font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: rgba(18, 18, 18, 0.8);
+    line-height: 31px;
+    font-weight: 400;
 }
 
 .postRightDescription {
-  margin-left: 10px;
-  font-family: 'Inter', sans-serif;
-  font-size: 17px;
-  color: rgba(18, 18, 18, 0.8);
-  line-height: 22px;
-  font-weight: 500;
+    margin-left: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: rgba(18, 18, 18, 0.8);
+    line-height: 22px;
+    font-weight: 500;
 }
 
 .dividerLine {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
 }
 
 .postFooter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .postFooterLeft,
 .postFooterRight {
-  font-family: 'Inter', sans-serif;
-  font-size: 19px;
-  color: rgba(255, 140, 0, 1);
-  font-weight: 600;
-  cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    color: rgba(255, 140, 0, 1);
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .detailView {
-  padding: 20px;
-  position: relative;
+    padding: 20px;
+    position: relative;
 }
 
 .detailTitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 30px;
-  color: rgba(0,0,0,1);
-  line-height: 125%;
-  letter-spacing: -0.4px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 1);
+    line-height: 125%;
+    letter-spacing: -0.4px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .detailContent {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: 17px;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 17px;
+    margin-bottom: 20px;
 }
 
 .detailImage {
-  border-radius: 10px;
-  width: 244px;
-  height: 178px;
-  object-fit: cover;
+    border-radius: 10px;
+    width: 244px;
+    height: 178px;
+    object-fit: cover;
 }
 
 .detailText {
-  font-family: 'Inter', sans-serif;
-  font-size: 19px;
-  color: rgba(18,18,18,0.8);
-  line-height: 26px;
-  letter-spacing: -0.2px;
-  font-weight: 400;
-  flex: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    color: rgba(18, 18, 18, 0.8);
+    line-height: 26px;
+    letter-spacing: -0.2px;
+    font-weight: 400;
+    flex: 1;
 }
 
 .detailStats {
-  font-family: 'Inter', sans-serif;
-  font-size: 19px;
-  color: rgba(18,18,18,0.8);
-  line-height: 26px;
-  letter-spacing: -0.2px;
-  font-weight: 400;
-  text-align: center;
-  margin-bottom: 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    color: rgba(18, 18, 18, 0.8);
+    line-height: 26px;
+    letter-spacing: -0.2px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 .closeButton {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #666;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
 }
 
 .engagementChartContainer {
-  width: 100%;
-  height: 300px;
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .viewPostButton {
-  width: 459px;
-  height: 70px;
-  border-radius: 10px;
-  background-color: rgba(255,140,0,1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  cursor: pointer;
+    width: 459px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: rgba(255, 140, 0, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    cursor: pointer;
 }
 
 .viewPostText {
-  font-family: 'Inter', sans-serif;
-  font-size: 22px;
-  min-width: 106px;
-  white-space: nowrap;
-  color: rgba(255,255,255,1);
-  line-height: 18.5px;
-  letter-spacing: -0.01em;
-  font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    min-width: 106px;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 1);
+    line-height: 18.5px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
 }
 
 .chartWrapper {
-  border-radius: 10px;
-  width: 337px;
-  min-height: 386px;
-  padding: 20px;
+    border-radius: 10px;
+    width: 337px;
+    min-height: 386px;
+    padding: 20px;
 }
 
 .chartInner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 314px;
-  height: 330px;
-  margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 314px;
+    height: 330px;
+    margin: auto;
 }
 
 .chartYAxis {
-  margin-top: 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 3px;
-  width: 313px;
-  height: 270px;
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3px;
+    width: 313px;
+    height: 270px;
 }
 
 .yAxisLabels {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  width: 18px;
-  height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 18px;
+    height: 270px;
 }
 
 .yAxisLabel {
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
-  color: rgba(130,136,152,1);
-  font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    color: rgba(130, 136, 152, 1);
+    font-weight: 400;
 }
 
 .chartArea {
-  position: relative;
-  width: 292px;
-  height: 270px;
-  border-left: 2px solid #D9D9D9;
-  border-bottom: 2px solid #D9D9D9;
-  background-color: transparent;
+    position: relative;
+    width: 292px;
+    height: 270px;
+    border-left: 2px solid #D9D9D9;
+    border-bottom: 2px solid #D9D9D9;
+    background-color: transparent;
 }
 
 .xAxisLabels {
-  margin-top: 8px;
-  display: flex;
-  justify-content: space-between;
-  width: 292px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    width: 292px;
 }
 
 .xAxisLabel {
-  font-size: 9px;
-  color: #828898;
+    font-size: 9px;
+    color: #828898;
 }
 
 .graphDot {
-  position: absolute;
-  z-index: 2;
-  width: 7.2px;
-  height: 8px;
+    position: absolute;
+    z-index: 2;
+    width: 7.2px;
+    height: 8px;
 }
 
 .gridLine {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 292px;
-  height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 292px;
+    height: 1px;
 }

@@ -44,101 +44,101 @@ const Analytics = () => {
   return (
     <div className={styles.notificationsContainer}>
       {/* Header Section */}
-<div className={styles.navBar} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px' }}>
-  
-  {/* Left Section: Logo, Category, Search */}
-  <div style={{ display: 'flex', alignItems: 'center', gap: '50px' }}>
-    
-    {/* Logo */}
-    <Link to="/loggedin">
-      <img className={styles.logo} src="/images/logo_.png" alt="Petropal Logo" />
-    </Link>
+      <div className={styles.navBar} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px' }}>
 
-    {/* Category Dropdown */}
-    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.1' }}>
-        <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'white', fontWeight: 600 }}>
-          Search by
-        </span>
-        <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'white', fontWeight: 600 }}>
-          Category
-        </span>
-      </div>
-      <img width="13" height="15" src="/images/dropp.png" alt="Dropdown" />
-    </div>
+        {/* Left Section: Logo, Category, Search */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '50px' }}>
 
-    {/* Search Bar */}
-    <div className={styles.searchContainer}>
-      {/* Search Section */}
-      <div className={styles.searchSection}>
-        <img style={{ marginLeft: '16px' }} width="14.6" height="14.6" src="/images/search.png" alt="Search" />
-        <div style={{ marginLeft: '18px', fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'rgba(1,47,107,0.5)', fontWeight: 600, whiteSpace: 'nowrap' }}>
-          Products & Services
-        </div>
-      </div>
+          {/* Logo */}
+          <Link to="/loggedin">
+            <img className={styles.logo} src="/images/logo_.png" alt="Petropal Logo" />
+          </Link>
 
-      {/* Divider */}
-      <img className={styles.searchDivider} src="/images/Line.png" alt="Divider" />
+          {/* Category Dropdown */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.1' }}>
+              <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'white', fontWeight: 600 }}>
+                Search by
+              </span>
+              <span style={{ fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'white', fontWeight: 600 }}>
+                Category
+              </span>
+            </div>
+            <img width="13" height="15" src="/images/dropp.png" alt="Dropdown" />
+          </div>
 
-      {/* Location & Button */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-        <img width="23" height="23" src="/images/location.png" alt="Location" />
-        <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'rgba(1,47,107,0.5)', fontWeight: 600 }}>
-          Location
-        </div>
-        <div className={styles.searchButton}>
-          <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '20px', color: 'white', fontWeight: 600 }}>
-            Search
+          {/* Search Bar */}
+          <div className={styles.searchContainer}>
+            {/* Search Section */}
+            <div className={styles.searchSection}>
+              <img style={{ marginLeft: '16px' }} width="14.6" height="14.6" src="/images/search.png" alt="Search" />
+              <div style={{ marginLeft: '18px', fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'rgba(1,47,107,0.5)', fontWeight: 600, whiteSpace: 'nowrap' }}>
+                Products & Services
+              </div>
+            </div>
+
+            {/* Divider */}
+            <img className={styles.searchDivider} src="/images/Line.png" alt="Divider" />
+
+            {/* Location & Button */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+              <img width="23" height="23" src="/images/location.png" alt="Location" />
+              <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '14px', color: 'rgba(1,47,107,0.5)', fontWeight: 600 }}>
+                Location
+              </div>
+              <div className={styles.searchButton}>
+                <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '20px', color: 'white', fontWeight: 600 }}>
+                  Search
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  {/* Right Section: Language & Profile */}
-  <div style={{ display: 'flex', alignItems: 'center', gap: '50px', marginRight: '25px' }}>
-    
-    {/* Language Selector */}
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-      <div style={{ fontFamily: '"Lato", sans-serif', fontSize: '18px', color: 'white', fontWeight: 500 }}>
-        English
-      </div>
-      <img width="11" height="7" src="/images/drop.png" alt="Dropdown" />
-    </div>
+        {/* Right Section: Language & Profile */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '50px', marginRight: '25px' }}>
 
-    {/* Profile Section */}
-    <Link to="/user" style={{ textDecoration: 'none' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
-        <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '20px', color: 'white', fontWeight: 500, whiteSpace: 'nowrap' }}>
-          Owen I.
+          {/* Language Selector */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ fontFamily: '"Lato", sans-serif', fontSize: '18px', color: 'white', fontWeight: 500 }}>
+              English
+            </div>
+            <img width="11" height="7" src="/images/drop.png" alt="Dropdown" />
+          </div>
+
+          {/* Profile Section */}
+          <Link to="/user" style={{ textDecoration: 'none' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
+              <div style={{ fontFamily: '"Inter", sans-serif', fontSize: '20px', color: 'white', fontWeight: 500, whiteSpace: 'nowrap' }}>
+                Owen I.
+              </div>
+              <img
+                className={styles.profilePic}
+                src="/images/profile.png"
+                alt="Profile Picture"
+              />
+            </div>
+          </Link>
         </div>
-        <img
-          className={styles.profilePic}
-          src="/images/profile.png"
-          alt="Profile Picture"
-        />
       </div>
-    </Link>
-  </div>
-</div>
 
-        {/* Notification Title Section */}
-        <div className={styles.notificationHeader}>
-          <button
-            className={styles.backButton}
-            onClick={() => {
-              if (showDetailView) {
-                setShowDetailView(false);
-                setDetailViewClosed(true);
-              } else if (detailViewClosed) {
-                window.history.back();
-              }
-            }}
-          >
-            <img src="/images/back.png" alt="Back" width={24} height={24} />
-          </button>
-          <div className={styles.notificationTitle}>Analytics</div>
-        </div>
+      {/* Notification Title Section */}
+      <div className={styles.notificationHeader}>
+        <button
+          className={styles.backButton}
+          onClick={() => {
+            if (showDetailView) {
+              setShowDetailView(false);
+              setDetailViewClosed(true);
+            } else if (detailViewClosed) {
+              window.history.back();
+            }
+          }}
+        >
+          <img src="/images/back.png" alt="Back" width={24} height={24} />
+        </button>
+        <div className={styles.notificationTitle}>Analytics</div>
+      </div>
       {/* Analytics Content Section */}
       <div className={styles.scrollableContent}>
         <div className={styles.splitViewContainer}>
@@ -259,7 +259,7 @@ const Analytics = () => {
                     <div className={styles.dividerLine}></div>
                     <div className={styles.postFooter}>
                       <div className={styles.postFooterLeft}>{post.impressions}</div>
-                      <div 
+                      <div
                         className={styles.postFooterRight}
                         onClick={() => handleViewAnalytics(post)}
                       >
@@ -276,7 +276,7 @@ const Analytics = () => {
           <div className={`${styles.rightContent} ${showDetailView ? styles.rightContentWithDetail : ''}`}>
             {showDetailView && selectedPost && (
               <div className={styles.detailView}>
-                <button 
+                <button
                   className={styles.closeButton}
                   onClick={() => setShowDetailView(false)}
                 >
@@ -284,10 +284,10 @@ const Analytics = () => {
                 </button>
                 <div className={styles.detailTitle}>Top Performing Posts</div>
                 <div className={styles.detailContent}>
-                  <img 
+                  <img
                     className={styles.detailImage}
-                    src={selectedPost.image} 
-                    alt="Post" 
+                    src={selectedPost.image}
+                    alt="Post"
                     width={244}
                     height={178}
                   />
@@ -298,28 +298,28 @@ const Analytics = () => {
                 <div className={styles.detailStats}>
                   This post received 1,230 views and 65 engagements over the last 25 days
                 </div>
-                
+
                 <div className={styles.analyticsMainText} style={{ minWidth: "270px", marginBottom: "30px", textAlign: "center" }}>
                   Engagements Last 30 Days
                 </div>
-                
+
                 <div className={styles.engagementChartContainer}>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ fontSize: '16px', marginBottom: '10px' }}>Engagement Chart</div>
-                    <div style={{ 
-                      width: '400px', 
-                      height: '200px', 
-                      backgroundColor: '#f0f0f0', 
-                      display: 'flex', 
-                      justifyContent: 'center', 
-                      alignItems: 'center', 
-                      borderRadius: '5px' 
+                    <div style={{
+                      width: '400px',
+                      height: '200px',
+                      backgroundColor: '#f0f0f0',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      borderRadius: '5px'
                     }}>
                       Chart/Graph Visualization
                     </div>
                   </div>
                 </div>
-                
+
                 <div className={styles.viewPostButton}>
                   <div className={styles.viewPostText}>View Post</div>
                 </div>

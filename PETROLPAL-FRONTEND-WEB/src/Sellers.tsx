@@ -7,8 +7,8 @@ const Sellers = () => {
     <div className={styles.sellersPage}>
       {/* Sticky Header */}
       <div className={styles.headerContainer}>
-        <div 
-          className={styles.backIcon} 
+        <div
+          className={styles.backIcon}
           onClick={() => window.history.back()}
         >
           <img
@@ -29,10 +29,10 @@ const Sellers = () => {
                 alt="Search Icon"
               />
             </div>
-            <input 
-              type="text" 
-              className={styles.searchInput} 
-              placeholder="Search Featured Sellers" 
+            <input
+              type="text"
+              className={styles.searchInput}
+              placeholder="Search Featured Sellers"
             />
           </div>
         </div>
