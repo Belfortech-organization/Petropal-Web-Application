@@ -1261,7 +1261,7 @@ const Loggedin = () => {
         <div className={styles.eventsHeader}>
           <div className={styles.eventsTitle}>Upcoming Events</div>
           <Link
-            to="/signin/"
+            to="/industry/"
             onClick={() => window.scrollTo(0, 0)}
             className={styles.seeAll}
           >

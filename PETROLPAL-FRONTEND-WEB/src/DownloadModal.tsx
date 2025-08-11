@@ -20,7 +20,7 @@ const DownloadModal: React.FC<DownloadModalProps> = ({ onClose }) => {
       transition: 'background-color 0.3s ease'
     }}>
       <div id="downloadModal" style={{
-        width: '430px',
+        width: '600px',
         height: '223px',
         borderRadius: '10px',
         boxShadow: '0px 4px 108px 0px rgba(0,0,0,0.25)',
